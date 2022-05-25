@@ -1,0 +1,156 @@
+{
+  "project_info": {
+    "project_number": "805984507686",
+    "firebase_url": "https://hod-and-deans-default-rtdb.firebaseio.com",
+    "project_id": "hod-and-deans",
+    "storage_bucket": "hod-and-deans.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:805984507686:android:c22783cec84b7f4d3e13e7",
+        "android_client_info": {
+          "package_name": "com.coetusstudio.hodanddeans"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "805984507686-eqngvarru8cbattg20pj4vn6gpacj17d.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDdXPtKHS-PyEuwQgh5dBT-MLSLKxjexas"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "805984507686-eqngvarru8cbattg20pj4vn6gpacj17d.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:805984507686:android:720088e5bd9e02bd3e13e7",
+        "android_client_info": {
+          "package_name": "com.coetusstudio.iimtaccountoffice"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "805984507686-eqngvarru8cbattg20pj4vn6gpacj17d.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDdXPtKHS-PyEuwQgh5dBT-MLSLKxjexas"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "805984507686-eqngvarru8cbattg20pj4vn6gpacj17d.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:805984507686:android:96d5cd36a5d6257b3e13e7",
+        "android_client_info": {
+          "package_name": "com.coetusstudio.iimtstudent"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "805984507686-eqngvarru8cbattg20pj4vn6gpacj17d.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDdXPtKHS-PyEuwQgh5dBT-MLSLKxjexas"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "805984507686-eqngvarru8cbattg20pj4vn6gpacj17d.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:805984507686:android:3d7482cc2b914b843e13e7",
+        "android_client_info": {
+          "package_name": "com.coetusstudio.iimtufaculty"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "805984507686-eqngvarru8cbattg20pj4vn6gpacj17d.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDdXPtKHS-PyEuwQgh5dBT-MLSLKxjexas"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "805984507686-eqngvarru8cbattg20pj4vn6gpacj17d.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:805984507686:android:27b3f4b98b386f953e13e7",
+        "android_client_info": {
+          "package_name": "com.coetusstudio.iimtustudent"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "805984507686-eqngvarru8cbattg20pj4vn6gpacj17d.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDdXPtKHS-PyEuwQgh5dBT-MLSLKxjexas"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "805984507686-eqngvarru8cbattg20pj4vn6gpacj17d.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

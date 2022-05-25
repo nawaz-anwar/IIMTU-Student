@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/App data/IIMTUStudent/app/src/main/res/drawable/bgsinglerow.xml" value="0.20052083333333334" />
+        <entry key="..\:/App data/IIMTUStudent/app/src/main/res/layout/activity_lecture.xml" value="0.22" />
+        <entry key="..\:/App data/IIMTUStudent/app/src/main/res/layout/activity_login.xml" value="0.184375" />
+        <entry key="..\:/App data/IIMTUStudent/app/src/main/res/layout/activity_main.xml" value="0.1787037037037037" />
+        <entry key="..\:/App data/IIMTUStudent/app/src/main/res/layout/activity_notes.xml" value="0.184375" />
+        <entry key="..\:/App data/IIMTUStudent/app/src/main/res/layout/activity_notice.xml" value="0.184375" />
+        <entry key="..\:/App data/IIMTUStudent/app/src/main/res/layout/activity_studentdetails.xml" value="0.22" />
+        <entry key="..\:/App data/IIMTUStudent/app/src/main/res/layout/app_bar_main.xml" value="0.22" />
+        <entry key="..\:/App data/IIMTUStudent/app/src/main/res/layout/content_main.xml" value="0.1787037037037037" />
+        <entry key="..\:/App data/IIMTUStudent/app/src/main/res/layout/nav_header_main.xml" value="0.1787037037037037" />
+        <entry key="..\:/App data/IIMTUStudent/app/src/main/res/layout/singlerowlecture.xml" value="0.184375" />
+        <entry key="..\:/App data/IIMTUStudent/app/src/main/res/layout/singlerownotes.xml" value="0.184375" />
+        <entry key="..\:/App data/IIMTUStudent/app/src/main/res/layout/singlerownotice.xml" value="0.22" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+
+
+    <item android:id="@+id/optProfile"
+        android:title="Profile"/>
+
+    <item android:id="@+id/optAttendance"
+        android:title="Attendance"/>
+
+    <item android:id="@+id/optFeesdetails"
+        android:title="Attendance"/>
+
+    <item android:id="@+id/optNotification"
+        android:title="Notification"/>
+
+    <item android:id="@+id/optPrivacyPolicy"
+        android:title="Privacy Policy"/>
+
+    <item android:id="@+id/optAboutUs"
+        android:title="About us"/>
+
+    <item android:id="@+id/optLogout"
+        android:title="Logout"/>
+
+</menu>
