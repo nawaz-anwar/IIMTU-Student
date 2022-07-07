@@ -12,11 +12,24 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.IIMTUStudent">
         <activity
-            android:name=".SyllabusActivity"
+            android:name=".Sessional_Assignment_Marks"
             android:exported="false" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".ViewpdfActivity"
             android:exported="false" />
+        <activity
+            android:name=".nav_header_Activity"
+            android:exported="false" />
+        <activity
+            android:name=".QueriesActivity"
+            android:exported="false" />
+        <activity
+            android:name=".NotificationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LectureActivity"
+            android:exported="true"
+            android:theme="@style/Theme.IIMTUStudentNoAction" />
         <activity
             android:name=".StudentdetailsActivity"
             android:exported="false" />
@@ -25,7 +38,8 @@
             android:exported="false" />
         <activity
             android:name=".NotesActivity"
-            android:exported="false" />
+            android:exported="true"
+            android:theme="@style/Theme.IIMTUStudentNoAction" />
         <activity
             android:name=".PaymentActivity"
             android:exported="false" />
@@ -33,10 +47,11 @@
             android:name=".ChatActivity"
             android:exported="false" />
         <activity
-            android:name=".LectureActivity"
-            android:exported="false" />
-        <activity
             android:name=".MainActivity"
+            android:exported="true"
+            android:theme="@style/Theme.IIMTUStudent.NoActionBar" />
+        <activity
+            android:name=".LoginActivity"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.IIMTUStudent.NoActionBar">

@@ -6,14 +6,13 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 
-import com.coetusstudio.iimtustudent.Adapter.LectureAdapter;
 import com.coetusstudio.iimtustudent.Adapter.NoticeAdapter;
-import com.coetusstudio.iimtustudent.Model.Lecture;
-import com.coetusstudio.iimtustudent.Model.Notice;
+import com.coetusstudio.iimtustudent.Model.NoticeData;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class NoticeActivity extends AppCompatActivity {
+public class NotificationActivity extends AppCompatActivity {
+
 
     RecyclerView recviewNotice;
     NoticeAdapter noticeAdapter;
@@ -21,14 +20,17 @@ public class NoticeActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_notice);
+        setContentView(R.layout.activity_notification);
 
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(NotificationActivity.this);
         recviewNotice=(RecyclerView)findViewById(R.id.rcNotice);
-        recviewNotice.setLayoutManager(new LinearLayoutManager(this));
+        recviewNotice.setLayoutManager(linearLayoutManager);
+        linearLayoutManager.setReverseLayout(true);
+        linearLayoutManager.setStackFromEnd(true);
 
-        FirebaseRecyclerOptions<Notice> options =
-                new FirebaseRecyclerOptions.Builder<Notice>()
-                        .setQuery(FirebaseDatabase.getInstance().getReference().child("Notice"), Notice.class)
+        FirebaseRecyclerOptions<NoticeData> options =
+                new FirebaseRecyclerOptions.Builder<NoticeData>()
+                        .setQuery(FirebaseDatabase.getInstance().getReference().child("Notice"), NoticeData.class)
                         .build();
 
         noticeAdapter=new NoticeAdapter(options);

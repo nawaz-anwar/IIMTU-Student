@@ -28,14 +28,13 @@
             android:id="@+id/notesTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="This is Header Text"
             android:layout_marginLeft="4dp"
-            android:textColor="#fff"
-            android:textSize="25dp"
-            android:textStyle="bold"
             android:layout_toRightOf="@id/imgNotes"
             android:gravity="center_vertical"
-            />
+            android:text="This is Header Text"
+            android:textColor="#fff"
+            android:textSize="25dp"
+            android:textStyle="bold" />
 
     </RelativeLayout>
 

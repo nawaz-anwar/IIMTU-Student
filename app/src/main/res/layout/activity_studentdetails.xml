@@ -5,12 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:backgroundTint="#E6FD00"
+    android:padding="5dp"
     tools:context=".StudentdetailsActivity">
 
     <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/imageView"
-        android:layout_width="189dp"
-        android:layout_height="168dp"
+        android:id="@+id/studentImage"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
         android:layout_marginStart="116dp"
         android:layout_marginEnd="116dp"
         android:background="@drawable/manimg"
@@ -25,17 +26,13 @@
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="25dp"
-        android:layout_marginTop="45dp"
-        android:layout_marginRight="25dp"
+        android:layout_marginBottom="112dp"
         android:orientation="vertical"
         android:padding="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/imageView"
-        app:layout_constraintHorizontal_bias="0.606"
-        app:layout_constraintStart_toStartOf="@+id/imageView"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
-        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/studentImage"
+        app:layout_constraintTop_toBottomOf="@+id/studentImage"
+        app:layout_constraintVertical_bias="0.333"
         tools:ignore="MissingConstraints">
 
         <LinearLayout
@@ -263,7 +260,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Attwndance:"
+                android:text="Attendance:"
                 android:textColor="#000000"
                 android:textSize="20sp"
                 android:textStyle="bold" />
@@ -289,7 +286,9 @@
         android:text="Back"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        app:layout_constraintVertical_bias="0.428" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

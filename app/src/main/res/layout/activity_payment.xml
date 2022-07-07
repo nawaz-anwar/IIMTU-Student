@@ -6,4 +6,38 @@
     android:layout_height="match_parent"
     tools:context=".PaymentActivity">
 
+    <Button android:id="@+id/paybtn"
+        android:layout_width="179dp"
+        android:layout_height="53dp"
+        android:text="Pay with RAZORPAY"
+        app:layout_constraintBottom_toTopOf="@+id/paytext" app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.462"/>
+    <TextView
+        android:id="@+id/paytext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="392dp"
+        android:textSize="19sp"
+        android:textColor="#000"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Working..."
+        android:textColor="#000000"
+        android:textSize="70sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.722" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

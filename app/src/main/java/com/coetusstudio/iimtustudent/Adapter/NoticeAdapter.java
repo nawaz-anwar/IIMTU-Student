@@ -11,30 +11,29 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.coetusstudio.iimtustudent.Model.Notice;
+import com.coetusstudio.iimtustudent.Model.NoticeData;
 import com.coetusstudio.iimtustudent.R;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 
-public class NoticeAdapter extends FirebaseRecyclerAdapter<Notice,NoticeAdapter.myviewholder> {
+public class NoticeAdapter extends FirebaseRecyclerAdapter<NoticeData,NoticeAdapter.myviewholder> {
 
 
-    public NoticeAdapter(@NonNull FirebaseRecyclerOptions<Notice> options)
+    public NoticeAdapter(@NonNull FirebaseRecyclerOptions<NoticeData> options)
     {
         super(options);
     }
 
     @Override
-    protected void onBindViewHolder(@NonNull final NoticeAdapter.myviewholder holder, @SuppressLint("RecyclerView") final int position, @NonNull final Notice Notice)
+    protected void onBindViewHolder(@NonNull final NoticeAdapter.myviewholder holder, @SuppressLint("RecyclerView") final int position, @NonNull final NoticeData NoticeData)
     {
 
 
-        holder.notificationTitle.setText(Notice.getNotificationTitle());
-        holder.notificationDate.setText(Notice.getNotificationDate());
-        holder.notificationTiming.setText(Notice.getNotificationTiming());
-        Glide.with(holder.notificationImage.getContext()).load(Notice.getNotificationImage())
+        holder.notificationTitle.setText(NoticeData.getTitle());
+        holder.notificationDate.setText(NoticeData.getDate());
+        holder.notificationTime.setText(NoticeData.getTime());
+        Glide.with(holder.notificationImage.getContext()).load(NoticeData.getImage())
                 .placeholder(R.drawable.manimg)
-                .circleCrop()
                 .error(R.drawable.manimg)
                 .into(holder.notificationImage);
 
@@ -52,15 +51,15 @@ public class NoticeAdapter extends FirebaseRecyclerAdapter<Notice,NoticeAdapter.
 
     class myviewholder extends RecyclerView.ViewHolder
     {
-        TextView notificationTitle, notificationDate, notificationTiming;
+        TextView notificationTitle, notificationDate, notificationTime;
         ImageView notificationImage;
         public myviewholder(@NonNull View itemView)
         {
             super(itemView);
-            notificationTitle=itemView.findViewById(R.id.notesTitle);
+            notificationTitle=itemView.findViewById(R.id.notificationTitle);
             notificationImage=itemView.findViewById(R.id.notificationImage);
             notificationDate=itemView.findViewById(R.id.notificationDate);
-            notificationTiming=itemView.findViewById(R.id.notificationTiming);
+            notificationTime=itemView.findViewById(R.id.notificationTime);
 
         }
     }

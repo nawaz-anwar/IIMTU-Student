@@ -4,18 +4,30 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/App data/IIMTUStudent/app/src/main/res/drawable/bgsinglerow.xml" value="0.20052083333333334" />
+        <entry key="..\:/App data/IIMTUStudent/app/src/main/res/drawable/round_button.xml" value="0.20052083333333334" />
+        <entry key="..\:/App data/IIMTUStudent/app/src/main/res/layout/activity_attendance.xml" value="0.184375" />
+        <entry key="..\:/App data/IIMTUStudent/app/src/main/res/layout/activity_chat.xml" value="0.184375" />
         <entry key="..\:/App data/IIMTUStudent/app/src/main/res/layout/activity_lecture.xml" value="0.22" />
         <entry key="..\:/App data/IIMTUStudent/app/src/main/res/layout/activity_login.xml" value="0.184375" />
         <entry key="..\:/App data/IIMTUStudent/app/src/main/res/layout/activity_main.xml" value="0.1787037037037037" />
+        <entry key="..\:/App data/IIMTUStudent/app/src/main/res/layout/activity_nav_header.xml" value="0.1703125" />
         <entry key="..\:/App data/IIMTUStudent/app/src/main/res/layout/activity_notes.xml" value="0.184375" />
         <entry key="..\:/App data/IIMTUStudent/app/src/main/res/layout/activity_notice.xml" value="0.184375" />
+        <entry key="..\:/App data/IIMTUStudent/app/src/main/res/layout/activity_notification.xml" value="0.184375" />
+        <entry key="..\:/App data/IIMTUStudent/app/src/main/res/layout/activity_payment.xml" value="0.184375" />
+        <entry key="..\:/App data/IIMTUStudent/app/src/main/res/layout/activity_queries.xml" value="0.184375" />
+        <entry key="..\:/App data/IIMTUStudent/app/src/main/res/layout/activity_sessional_assignment_marks.xml" value="0.184375" />
         <entry key="..\:/App data/IIMTUStudent/app/src/main/res/layout/activity_studentdetails.xml" value="0.22" />
+        <entry key="..\:/App data/IIMTUStudent/app/src/main/res/layout/activity_viewpdf.xml" value="0.184375" />
         <entry key="..\:/App data/IIMTUStudent/app/src/main/res/layout/app_bar_main.xml" value="0.22" />
         <entry key="..\:/App data/IIMTUStudent/app/src/main/res/layout/content_main.xml" value="0.1787037037037037" />
-        <entry key="..\:/App data/IIMTUStudent/app/src/main/res/layout/nav_header_main.xml" value="0.1787037037037037" />
-        <entry key="..\:/App data/IIMTUStudent/app/src/main/res/layout/singlerowlecture.xml" value="0.184375" />
+        <entry key="..\:/App data/IIMTUStudent/app/src/main/res/layout/nav_header_main.xml" value="0.3333333333333333" />
+        <entry key="..\:/App data/IIMTUStudent/app/src/main/res/layout/singlerowlecture.xml" value="0.16666666666666666" />
         <entry key="..\:/App data/IIMTUStudent/app/src/main/res/layout/singlerownotes.xml" value="0.184375" />
         <entry key="..\:/App data/IIMTUStudent/app/src/main/res/layout/singlerownotice.xml" value="0.22" />
+        <entry key="..\:/App data/IIMTUStudent/app/src/main/res/layout/singlerowsessional.xml" value="0.22" />
+        <entry key="..\:/App data/IIMTUStudent/app/src/main/res/menu/activity_main_drawer.xml" value="0.16666666666666666" />
+        <entry key="..\:/App data/IIMTUStudent/app/src/main/res/menu/searchmenu.xml" value="0.184375" />
       </map>
     </option>
   </component>

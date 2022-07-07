@@ -85,6 +85,7 @@
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
           android:layout_weight="1"
+          android:id="@+id/forqetPassword"
           android:text="                                        Request Forget Password!"
           android:layout_gravity="center_horizontal"/>
     </com.google.android.material.textfield.TextInputLayout>
@@ -93,7 +94,7 @@
         android:layout_width="178dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:background="@color/btnbgcolor"
+        android:background="@drawable/round_button"
         android:id="@+id/btnLogin"
         android:padding="10dp"
         android:text="Login"
