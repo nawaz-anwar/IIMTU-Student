@@ -42,7 +42,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
-    CardView lecture, studentDetails, attendance, receivedNotification, chat, payment, notes;
+    CardView lecture, studentDetails, attendance, receivedNotification, marks, payment, notes, queries;
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityMainBinding binding;
     private View header;
@@ -81,8 +81,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         lecture = findViewById(R.id.lecture);
         studentDetails = findViewById(R.id.studentDetails);
         notes = findViewById(R.id.notes);
-        //syllabus = findViewById(R.id.syllabus);
-        chat = findViewById(R.id.chat);
+        queries = findViewById(R.id.queries);
+        marks = findViewById(R.id.marks);
 
 
 
@@ -92,8 +92,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         lecture.setOnClickListener(this);
         studentDetails.setOnClickListener(this);
         notes.setOnClickListener(this);
-        //syllabus.setOnClickListener(this);
-        chat.setOnClickListener(this);
+        queries.setOnClickListener(this);
+        marks.setOnClickListener(this);
 
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.OpenDrawer, R.string.CloseDrawer);
         toggle.syncState();
@@ -155,8 +155,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Intent intent1 = new Intent(MainActivity.this, NotificationActivity.class);
                 startActivity(intent1);
                 break;
-            case R.id.queries:
-                Intent intent2 = new Intent(MainActivity.this,ChatActivity.class);
+            case R.id.marks:
+                Intent intent2 = new Intent(MainActivity.this,Sessional_Assignment_Marks.class);
                 startActivity(intent2);
                 break;
             case R.id.lecture:
@@ -174,7 +174,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Intent intent6 = new Intent(MainActivity.this, PaymentActivity.class);
                 startActivity(intent6);
                 break;
-            case R.id.chat:
+            case R.id.queries:
                 Intent intent7 = new Intent(MainActivity.this, QueriesActivity.class);
                 startActivity(intent7);
                 break;

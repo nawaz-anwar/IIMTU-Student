@@ -22,7 +22,8 @@
             android:layout_marginLeft="10dp"
             android:text="First Sessional Marks"
             android:textColor="#1B0101"
-            android:textSize="36sp"
+            android:gravity="center"
+            android:textSize="25sp"
             android:textStyle="bold" />
 
 
@@ -82,6 +83,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="100dp"
                         android:text="90"
+                        android:textStyle="bold"
                         android:textColor="#5C00FF"
                         android:textSize="14sp" />
 
@@ -108,6 +110,8 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="100dp"
                         android:text="91"
+                        android:textStyle="bold"
+                        android:textColor="#5C00FF"
                         android:textSize="14sp" />
 
                 </LinearLayout>
@@ -133,6 +137,8 @@
                         android:layout_height="match_parent"
                         android:layout_marginLeft="100dp"
                         android:text="92"
+                        android:textStyle="bold"
+                        android:textColor="#5C00FF"
                         android:textSize="14sp" />
 
                 </LinearLayout>
@@ -158,6 +164,8 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="100dp"
                         android:text="93"
+                        android:textStyle="bold"
+                        android:textColor="#5C00FF"
                         android:textSize="14sp" />
 
                 </LinearLayout>
@@ -183,6 +191,8 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="100dp"
                         android:text="94"
+                        android:textStyle="bold"
+                        android:textColor="#5C00FF"
                         android:textSize="14sp" />
 
                 </LinearLayout>
