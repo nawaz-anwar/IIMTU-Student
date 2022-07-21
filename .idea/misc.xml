@@ -4,6 +4,8 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/App data/IIMTUStudent/app/src/main/res/drawable/bgsinglerow.xml" value="0.20052083333333334" />
+        <entry key="..\:/App data/IIMTUStudent/app/src/main/res/drawable/boundry.xml" value="0.20052083333333334" />
+        <entry key="..\:/App data/IIMTUStudent/app/src/main/res/drawable/circular.xml" value="0.20052083333333334" />
         <entry key="..\:/App data/IIMTUStudent/app/src/main/res/drawable/round_button.xml" value="0.20052083333333334" />
         <entry key="..\:/App data/IIMTUStudent/app/src/main/res/drawable/spinnerbg.xml" value="0.20052083333333334" />
         <entry key="..\:/App data/IIMTUStudent/app/src/main/res/layout/activity_attendance.xml" value="0.184375" />
