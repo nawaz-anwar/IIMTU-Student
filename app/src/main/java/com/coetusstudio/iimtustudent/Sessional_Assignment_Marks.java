@@ -11,17 +11,24 @@ import com.coetusstudio.iimtustudent.Adapter.SessionalMarksAdapter;
 import com.coetusstudio.iimtustudent.Model.Lecture;
 import com.coetusstudio.iimtustudent.Model.SessionalMarks;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class Sessional_Assignment_Marks extends AppCompatActivity {
 
     RecyclerView recviewSessional;
     SessionalMarksAdapter sessionalMarksAdapter;
+    FirebaseAuth auth;
+    FirebaseUser currentUser ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sessional_assignment_marks);
+
+        auth = FirebaseAuth.getInstance();
+        currentUser = auth.getCurrentUser();
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(Sessional_Assignment_Marks.this);
         recviewSessional=(RecyclerView)findViewById(R.id.rcSessionalMarks);

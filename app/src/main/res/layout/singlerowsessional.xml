@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -39,7 +40,7 @@
                 android:orientation="vertical">
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
 
@@ -51,19 +52,28 @@
                         android:textSize="20sp"
                         android:textStyle="bold" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="100dp"
-                        android:text="Marks"
-                        android:textColor="#000000"
-                        android:textSize="20sp"
-                        android:textStyle="bold" />
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Marks"
+                            android:textColor="#000000"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            android:layout_marginRight="10dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
 
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="3dp"
                     android:orientation="horizontal">
@@ -77,20 +87,31 @@
                         android:textSize="14sp"
                         android:textStyle="bold" />
 
-                    <TextView
-                        android:id="@+id/sub1Marks"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="100dp"
-                        android:text="90"
-                        android:textStyle="bold"
-                        android:textColor="#5C00FF"
-                        android:textSize="14sp" />
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/sub1Marks"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="94"
+                            android:textStyle="bold"
+                            android:textColor="#5C00FF"
+                            android:textSize="14sp"
+                            android:layout_marginRight="10dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
 
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="3dp"
                     android:orientation="horizontal">
@@ -104,20 +125,32 @@
                         android:textSize="14sp"
                         android:textStyle="bold" />
 
-                    <TextView
-                        android:id="@+id/sub2Marks"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="100dp"
-                        android:text="91"
-                        android:textStyle="bold"
-                        android:textColor="#5C00FF"
-                        android:textSize="14sp" />
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/sub2Marks"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="94"
+                            android:textStyle="bold"
+                            android:textColor="#5C00FF"
+                            android:textSize="14sp"
+                            android:layout_marginRight="10dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="3dp"
                     android:orientation="horizontal">
@@ -131,20 +164,32 @@
                         android:textSize="14sp"
                         android:textStyle="bold" />
 
-                    <TextView
-                        android:id="@+id/sub3Marks"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_marginLeft="100dp"
-                        android:text="92"
-                        android:textStyle="bold"
-                        android:textColor="#5C00FF"
-                        android:textSize="14sp" />
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/sub3Marks"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="94"
+                            android:textStyle="bold"
+                            android:textColor="#5C00FF"
+                            android:textSize="14sp"
+                            android:layout_marginRight="10dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="3dp"
                     android:orientation="horizontal">
@@ -158,20 +203,32 @@
                         android:textSize="14sp"
                         android:textStyle="bold" />
 
-                    <TextView
-                        android:id="@+id/sub4Marks"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="100dp"
-                        android:text="93"
-                        android:textStyle="bold"
-                        android:textColor="#5C00FF"
-                        android:textSize="14sp" />
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/sub4Marks"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="94"
+                            android:textStyle="bold"
+                            android:textColor="#5C00FF"
+                            android:textSize="14sp"
+                            android:layout_marginRight="10dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="3dp"
                     android:orientation="horizontal">
@@ -185,15 +242,24 @@
                         android:textSize="14sp"
                         android:textStyle="bold" />
 
-                    <TextView
-                        android:id="@+id/sub5Marks"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="100dp"
-                        android:text="94"
-                        android:textStyle="bold"
-                        android:textColor="#5C00FF"
-                        android:textSize="14sp" />
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/sub5Marks"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="94"
+                            android:textStyle="bold"
+                            android:textColor="#5C00FF"
+                            android:textSize="14sp"
+                            android:layout_marginRight="10dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
 
                 </LinearLayout>
 
