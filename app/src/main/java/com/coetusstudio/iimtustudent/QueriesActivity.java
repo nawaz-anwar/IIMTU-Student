@@ -14,6 +14,8 @@ import com.coetusstudio.iimtustudent.Model.StudentDetails;
 import com.coetusstudio.iimtustudent.databinding.ActivityQueriesBinding;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -32,6 +34,8 @@ public class QueriesActivity extends AppCompatActivity {
     String studentName, studentRollNumber;
     HashMap<String,String> hashMapstudentName=new HashMap<>();
     HashMap<String,String> hashMapStudentRollNumber=new HashMap<>();
+    FirebaseAuth auth;
+    FirebaseUser currentUser ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +43,8 @@ public class QueriesActivity extends AppCompatActivity {
         binding = ActivityQueriesBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        auth = FirebaseAuth.getInstance();
+        currentUser = auth.getCurrentUser();
         reference = FirebaseDatabase.getInstance().getReference().child("Queries");
         dbrollref = FirebaseDatabase.getInstance().getReference().child("IIMTU").child("Student");
         dbnameref = FirebaseDatabase.getInstance().getReference().child("IIMTU").child("Student");
@@ -75,16 +81,11 @@ public class QueriesActivity extends AppCompatActivity {
             }
         });
 
-        dbnameref.addListenerForSingleValueEvent(new ValueEventListener() {
+        dbnameref.child(currentUser.getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                for(DataSnapshot dsp :dataSnapshot.getChildren()){
-
-                    StudentDetails br = dsp.getValue(StudentDetails.class);
-
-                    hashMapstudentName.put(br.getStudentName(),br.getStudentAdmissionNumber());
-
-                    listStudentName.add(br.getStudentName());
+                if (dataSnapshot.exists()){
+                    listStudentName.add(dataSnapshot.child("studentName").getValue().toString());
 
                 }
             }
@@ -115,17 +116,11 @@ public class QueriesActivity extends AppCompatActivity {
             }
         });
 
-        dbrollref.addListenerForSingleValueEvent(new ValueEventListener() {
+        dbrollref.child(currentUser.getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                for(DataSnapshot dsp :dataSnapshot.getChildren()){
-
-                    StudentDetails br = dsp.getValue(StudentDetails.class);
-
-                    hashMapStudentRollNumber.put(br.getStudentRollNumber(),br.getStudentAdmissionNumber());
-
-                    listStudentRollNumber.add(br.getStudentRollNumber());
-
+                if (dataSnapshot.exists()){
+                    listStudentRollNumber.add(dataSnapshot.child("studentRollNumber").getValue().toString());
                 }
             }
 
