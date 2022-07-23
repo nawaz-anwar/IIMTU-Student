@@ -1,6 +1,8 @@
 package com.coetusstudio.iimtustudent.Adapter;
 
 import android.annotation.SuppressLint;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.view.LayoutInflater;
@@ -19,6 +21,7 @@ import com.coetusstudio.iimtustudent.R;
 import com.coetusstudio.iimtustudent.ViewpdfActivity;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.firebase.database.FirebaseDatabase;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -54,6 +57,33 @@ public class LectureAdapter extends FirebaseRecyclerAdapter<Lecture,LectureAdapt
             }
         });
 
+        holder.lectureDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                AlertDialog.Builder builder=new AlertDialog.Builder(holder.lectureName.getContext());
+                builder.setTitle("Warning");
+                builder.setMessage("Are you sure want to delete...?");
+
+                builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        FirebaseDatabase.getInstance().getReference().child("Lecture").child(getRef(position).getKey())
+                                .removeValue();
+                    }
+                });
+
+                builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+
+                    }
+                });
+
+                builder.show();
+            }
+        });
+
 
     } // End of OnBindViewMethod
 
@@ -70,6 +100,7 @@ public class LectureAdapter extends FirebaseRecyclerAdapter<Lecture,LectureAdapt
     {
         TextView lectureName, lectureTiming, lectureLink, lectureDate, lectureTime;
         Button btnLectureJoin;
+        ImageView lectureDelete;
         public myviewholder(@NonNull View itemView)
         {
             super(itemView);
@@ -78,6 +109,7 @@ public class LectureAdapter extends FirebaseRecyclerAdapter<Lecture,LectureAdapt
             lectureLink=itemView.findViewById(R.id.lectureLink);
             lectureDate=itemView.findViewById(R.id.lectureDate);
             lectureTime=itemView.findViewById(R.id.lectureTime);
+            lectureDelete=itemView.findViewById(R.id.lectureDelete);
             btnLectureJoin=itemView.findViewById(R.id.btnLectureJoin);
 
         }

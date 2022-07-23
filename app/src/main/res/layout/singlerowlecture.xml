@@ -13,15 +13,42 @@
         android:orientation="vertical"
         android:padding="15dp">
 
-        <TextView
-            android:id="@+id/lectureName"
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:text="Name"
-            android:textColor="#000"
-            android:textSize="24sp"
-            android:textStyle="bold" />
+            android:layout_marginTop="13dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/lectureName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="Name"
+                android:textColor="#000"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/lectureDelete"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_marginRight="0dp"
+                    android:background="@drawable/delete"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </LinearLayout>
+
+
 
         <TextView
             android:id="@+id/lectureLink"
@@ -29,7 +56,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:text="Email"
-            android:textColor="#000"
+            android:textColor="#314EF3"
             android:textSize="18sp" />
 
         <TextView
@@ -38,7 +65,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:text="Lecture Timing"
-            android:textColor="#314EF3"
+            android:textColor="#000"
             android:textSize="18sp" />
 
 

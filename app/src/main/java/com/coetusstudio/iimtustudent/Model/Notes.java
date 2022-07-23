@@ -1,5 +1,7 @@
 package com.coetusstudio.iimtustudent.Model;
 
+import android.net.Uri;
+
 public class Notes {
 
     String filename, fileurl;

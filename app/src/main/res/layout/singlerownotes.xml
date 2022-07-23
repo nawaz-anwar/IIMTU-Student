@@ -33,9 +33,21 @@
             android:gravity="center_vertical"
             android:text="This is Header Text"
             android:textColor="#fff"
-            android:textSize="25dp"
+            android:textSize="23dp"
             android:textStyle="bold" />
 
+        <ImageView
+            android:id="@+id/notesDownload"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignEnd="@+id/notesTitle"
+            android:layout_alignBottom="@+id/imgNotes"
+            android:layout_marginEnd="0dp"
+            android:layout_marginBottom="0dp"
+            app:srcCompat="@drawable/download" />
+
+
     </RelativeLayout>
+
 
 </androidx.cardview.widget.CardView>
