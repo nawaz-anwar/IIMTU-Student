@@ -54,10 +54,8 @@ public class StudentdetailsActivity extends AppCompatActivity {
                 binding.studentRollNumber.setText(studentDetails.getStudentRollNumber());
                 binding.studentGrade.setText(studentDetails.getStudentGrade());
                 binding.studentAttendance.setText(studentDetails.getStudentAttendance());
-                Glide.with(binding.studentImage.getContext()).load(StudentDetails.getStudentImage())
-                        .placeholder(R.drawable.manimg)
-                        .error(R.drawable.manimg)
-                        .into(binding.studentImage);
+                String url = snapshot.child("studentImage").getValue().toString();
+                Glide.with(getApplicationContext()).load(url).error(R.drawable.manimg).into(binding.studentImage);
 
 
             }

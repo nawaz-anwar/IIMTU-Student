@@ -195,18 +195,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.exists()){
 
-                    //StudentDetails studentDetails = snapshot.getValue(StudentDetails.class);
-                    //acultyImage = snapshot.child("imageAccount").getValue().toString();
-                    //facultyName  = snapshot.child("studentName").getValue().toString();
-                    //facultyEmail = snapshot.child("emailAccount").getValue().toString();
-                    //facultyId = snapshot.child("facultyId").getValue().toString();
                     navUsername.setText(snapshot.child("studentName").getValue().toString());
                     navUserMail.setText(snapshot.child("studentEmail").getValue().toString());
                     navUserRoll.setText(snapshot.child("studentRollNumber").getValue().toString());
-                    Glide.with(MainActivity.this).load(snapshot.child("studentImage").toString()).error(R.drawable.manimg).into(navUserPhot);
-                    //navUserMail.setText(StudentDetails.getStudentName());
-                    //headerEmail.setText(facultyEmail);
-                    //headerID.setText(facultyId);
+                    String url = snapshot.child("studentImage").getValue().toString();
+                    Glide.with(getApplicationContext()).load(url).error(R.drawable.manimg).into(navUserPhot);
+
 
                 }
             }
