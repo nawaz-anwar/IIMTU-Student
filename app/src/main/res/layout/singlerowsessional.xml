@@ -11,7 +11,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="242dp"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="15dp">
 
@@ -21,27 +21,28 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginLeft="10dp"
+            android:gravity="center"
             android:text="First Sessional Marks"
             android:textColor="#1B0101"
-            android:gravity="center"
             android:textSize="25sp"
             android:textStyle="bold" />
 
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="163dp"
+            android:layout_height="201dp"
             android:orientation="horizontal">
 
 
             <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:orientation="vertical">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="13dp"
                     android:orientation="horizontal">
 
                     <TextView
@@ -60,11 +61,11 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginRight="10dp"
                             android:text="Marks"
                             android:textColor="#000000"
                             android:textSize="20sp"
                             android:textStyle="bold"
-                            android:layout_marginRight="10dp"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
@@ -75,7 +76,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="3dp"
+                    android:layout_marginTop="5dp"
                     android:orientation="horizontal">
 
                     <TextView
@@ -84,7 +85,7 @@
                         android:layout_height="wrap_content"
                         android:text="Email Id:"
                         android:textColor="#000000"
-                        android:textSize="14sp"
+                        android:textSize="16sp"
                         android:textStyle="bold" />
 
                     <androidx.constraintlayout.widget.ConstraintLayout
@@ -95,11 +96,11 @@
                             android:id="@+id/sub1Marks"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="94"
-                            android:textStyle="bold"
-                            android:textColor="#5C00FF"
-                            android:textSize="14sp"
                             android:layout_marginRight="10dp"
+                            android:text="94"
+                            android:textColor="#5C00FF"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
@@ -113,7 +114,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="3dp"
+                    android:layout_marginTop="5dp"
                     android:orientation="horizontal">
 
                     <TextView
@@ -122,7 +123,7 @@
                         android:layout_height="wrap_content"
                         android:text="Roll No.:"
                         android:textColor="#000000"
-                        android:textSize="14sp"
+                        android:textSize="16sp"
                         android:textStyle="bold" />
 
                     <androidx.constraintlayout.widget.ConstraintLayout
@@ -133,11 +134,11 @@
                             android:id="@+id/sub2Marks"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="94"
-                            android:textStyle="bold"
-                            android:textColor="#5C00FF"
-                            android:textSize="14sp"
                             android:layout_marginRight="10dp"
+                            android:text="94"
+                            android:textColor="#5C00FF"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
@@ -146,13 +147,12 @@
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="3dp"
+                    android:layout_marginTop="5dp"
                     android:orientation="horizontal">
 
                     <TextView
@@ -161,7 +161,7 @@
                         android:layout_height="wrap_content"
                         android:text="Admission No.:"
                         android:textColor="#000000"
-                        android:textSize="14sp"
+                        android:textSize="16sp"
                         android:textStyle="bold" />
 
                     <androidx.constraintlayout.widget.ConstraintLayout
@@ -172,11 +172,11 @@
                             android:id="@+id/sub3Marks"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="94"
-                            android:textStyle="bold"
-                            android:textColor="#5C00FF"
-                            android:textSize="14sp"
                             android:layout_marginRight="10dp"
+                            android:text="94"
+                            android:textColor="#5C00FF"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
@@ -185,13 +185,12 @@
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="3dp"
+                    android:layout_marginTop="5dp"
                     android:orientation="horizontal">
 
                     <TextView
@@ -200,7 +199,7 @@
                         android:layout_height="wrap_content"
                         android:text="Enrollment No.:"
                         android:textColor="#000000"
-                        android:textSize="14sp"
+                        android:textSize="16sp"
                         android:textStyle="bold" />
 
                     <androidx.constraintlayout.widget.ConstraintLayout
@@ -211,11 +210,11 @@
                             android:id="@+id/sub4Marks"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="94"
-                            android:textStyle="bold"
-                            android:textColor="#5C00FF"
-                            android:textSize="14sp"
                             android:layout_marginRight="10dp"
+                            android:text="94"
+                            android:textColor="#5C00FF"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
@@ -224,13 +223,12 @@
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="3dp"
+                    android:layout_marginTop="5dp"
                     android:orientation="horizontal">
 
                     <TextView
@@ -239,7 +237,7 @@
                         android:layout_height="match_parent"
                         android:text="Branch:"
                         android:textColor="#000000"
-                        android:textSize="14sp"
+                        android:textSize="16sp"
                         android:textStyle="bold" />
 
                     <androidx.constraintlayout.widget.ConstraintLayout
@@ -250,11 +248,11 @@
                             android:id="@+id/sub5Marks"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="94"
-                            android:textStyle="bold"
-                            android:textColor="#5C00FF"
-                            android:textSize="14sp"
                             android:layout_marginRight="10dp"
+                            android:text="94"
+                            android:textColor="#5C00FF"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
