@@ -28,6 +28,9 @@ import com.google.firebase.storage.FileDownloadTask;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
+import java.io.File;
+import java.io.IOException;
+
 public class NotesAdapter extends FirebaseRecyclerAdapter<Notes,NotesAdapter.myviewholder>{
 
 
@@ -55,37 +58,24 @@ public class NotesAdapter extends FirebaseRecyclerAdapter<Notes,NotesAdapter.myv
         holder.notesDownload.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                StorageReference storageRef = FirebaseStorage.getInstance().getReference().child("Notes");
+                StorageReference storageRef = FirebaseStorage.getInstance().getReference().child("Notes").child("fileurl");
                 //StorageReference islandRef = storageRef.child("images/island.jpg");
 
-                AlertDialog.Builder builder=new AlertDialog.Builder(holder.header.getContext());
-                builder.setTitle("Warning");
-                builder.setMessage("Are you sure want to Download...?");
 
-                builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                storageRef.getBytes(Long.MAX_VALUE).addOnSuccessListener(new OnSuccessListener<byte[]>() {
                     @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-
-                        /*
-                        storageRef.getFile(Notes.getFileurl()).addOnSuccessListener(new OnSuccessListener<FileDownloadTask.TaskSnapshot>() {
-                            @Override
-                            public void onSuccess(FileDownloadTask.TaskSnapshot taskSnapshot) {
-
-                            }
-                        });
-
-                         */
+                    public void onSuccess(byte[] bytes) {
+                        // Use the bytes to display the image
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception exception) {
+                        // Handle any errors
                     }
                 });
 
-                builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
 
-                    }
-                });
 
-                builder.show();
 
             }
         });

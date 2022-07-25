@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     NavigationView navigationView;
     Toolbar toolbar;
     FirebaseAuth auth;
-    FirebaseUser currentUser ;
+    FirebaseUser currentUser;
     CircleImageView studentImageProfile;
     TextView studentNameProfile, studentEmailIdProfile, studentRollNumberProfile, studentAdmissionNumberProfile;
 

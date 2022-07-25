@@ -3,8 +3,8 @@
     package="com.coetusstudio.iimtustudent">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
 
     <application
         android:allowBackup="true"
@@ -14,13 +14,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.IIMTUStudent">
         <activity
+            android:name=".ImageViewActivity"
+            android:exported="false" />
+        <activity
             android:name=".Sessional_Assignment_Marks"
             android:exported="false" />
         <activity
             android:name=".ViewpdfActivity"
-            android:exported="false" />
-        <activity
-            android:name=".nav_header_Activity"
             android:exported="false" />
         <activity
             android:name=".QueriesActivity"

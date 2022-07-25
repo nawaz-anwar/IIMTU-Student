@@ -1,6 +1,7 @@
 package com.coetusstudio.iimtustudent.Adapter;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,8 +12,11 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.coetusstudio.iimtustudent.ImageViewActivity;
+import com.coetusstudio.iimtustudent.Model.Notes;
 import com.coetusstudio.iimtustudent.Model.NoticeData;
 import com.coetusstudio.iimtustudent.R;
+import com.coetusstudio.iimtustudent.ViewpdfActivity;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 
@@ -36,6 +40,19 @@ public class NoticeAdapter extends FirebaseRecyclerAdapter<NoticeData,NoticeAdap
                 .placeholder(R.drawable.manimg)
                 .error(R.drawable.manimg)
                 .into(holder.notificationImage);
+
+
+        holder.notificationImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(holder.notificationTitle.getContext(), ImageViewActivity.class);
+                intent.putExtra("title",NoticeData.getTitle());
+                intent.putExtra("imageurl",NoticeData.getImage());
+
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                holder.notificationTitle.getContext().startActivity(intent);
+            }
+        });
 
 
     } // End of OnBindViewMethod

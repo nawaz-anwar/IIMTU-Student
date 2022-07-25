@@ -2,9 +2,9 @@ package com.coetusstudio.iimtustudent.Model;
 
 public class AddFaculty {
 
-    String facultyImage, facultyName, facultyEmail, facultyId, facultySubject, facultySubjectCode, facultyBranch, facultySemester, facultySection,facultyPassword, facultyMessage;
+    String facultyImage, facultyName, facultyEmail, facultyId, facultySubject, facultySubjectCode, facultyBranch, facultySemester, facultySection,facultyPassword, facultyUid;
 
-    public AddFaculty(String facultyImage, String facultyName, String facultyEmail, String facultyId, String facultySubject, String facultySubjectCode, String facultyBranch, String facultySemester, String facultySection, String facultyPassword, String facultyMessage) {
+    public AddFaculty(String facultyImage, String facultyName, String facultyEmail, String facultyId, String facultySubject, String facultySubjectCode, String facultyBranch, String facultySemester, String facultySection, String facultyPassword, String facultyUid) {
         this.facultyImage = facultyImage;
         this.facultyName = facultyName;
         this.facultyEmail = facultyEmail;
@@ -15,7 +15,7 @@ public class AddFaculty {
         this.facultySemester = facultySemester;
         this.facultySection = facultySection;
         this.facultyPassword = facultyPassword;
-        this.facultyMessage = facultyMessage;
+        this.facultyUid = facultyUid;
     }
 
     public AddFaculty() {
@@ -91,11 +91,11 @@ public class AddFaculty {
     }
 
     public String getFacultyMessage() {
-        return facultyMessage;
+        return facultyUid;
     }
 
     public void setFacultyMessage(String facultyMessage) {
-        this.facultyMessage = facultyMessage;
+        this.facultyUid = facultyMessage;
     }
 
     public String getFacultyBranch() {

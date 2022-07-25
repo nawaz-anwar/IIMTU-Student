@@ -3,6 +3,7 @@ package com.coetusstudio.iimtustudent;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -35,13 +36,20 @@ public class QueriesActivity extends AppCompatActivity {
     String studentName, studentRollNumber, facultyName;
     HashMap<String,String> hashMapFaculty=new HashMap<>();
     FirebaseAuth auth;
-    FirebaseUser currentUser ;
+    FirebaseUser currentUser;
+    ProgressDialog progressDialog;
+    String facultyId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityQueriesBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+
+        ProgressDialog progressDialog = new ProgressDialog(QueriesActivity.this);
+        progressDialog.setTitle("Queries");
+        progressDialog.setMessage("Queries Sending to Faculty...");
 
         auth = FirebaseAuth.getInstance();
         currentUser = auth.getCurrentUser();
@@ -53,6 +61,7 @@ public class QueriesActivity extends AppCompatActivity {
         binding.btnSendLink.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                progressDialog.show();
                 if (binding.queriesTitle.getEditText().getText().toString().isEmpty()) {
                     binding.queriesTitle.setError("Empty");
                     binding.queriesTitle.requestFocus();
@@ -181,12 +190,12 @@ public class QueriesActivity extends AppCompatActivity {
 
 
         String queriesTitle = binding.queriesTitle.getEditText().getText().toString();
-        Queries queries = new Queries(studentName, studentRollNumber, queriesTitle);
+        Queries queries = new Queries(studentName, studentRollNumber, facultyName, queriesTitle);
 
-        reference.push().setValue(queries).addOnSuccessListener(new OnSuccessListener<Void>() {
+        reference.child(facultyName).push().setValue(queries).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void unused) {
-                Toast.makeText(QueriesActivity.this, "Queries sent to the Faculty", Toast.LENGTH_SHORT).show();
+                progressDialog.dismiss();
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
