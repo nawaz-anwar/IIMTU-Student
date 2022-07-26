@@ -3,6 +3,7 @@ package com.coetusstudio.iimtustudent;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.webkit.WebView;
@@ -26,6 +27,11 @@ public class ViewpdfActivity extends AppCompatActivity {
         String filename=getIntent().getStringExtra("filename");
         String fileurl=getIntent().getStringExtra("fileurl");
 
+        if (filename.isEmpty()){
+            Intent intent = new Intent(ViewpdfActivity.this,NotesActivity.class);
+            startActivity(intent);
+        }
+
         final ProgressDialog pd=new ProgressDialog(this);
         pd.setTitle(filename);
         pd.setMessage("Opening....!!!");
@@ -45,6 +51,7 @@ public class ViewpdfActivity extends AppCompatActivity {
                 pd.dismiss();
             }
         });
+
 
         String url="";
         try {

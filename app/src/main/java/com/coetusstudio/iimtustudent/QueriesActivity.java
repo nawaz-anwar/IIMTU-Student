@@ -32,7 +32,7 @@ public class QueriesActivity extends AppCompatActivity {
 
     ActivityQueriesBinding binding;
     DatabaseReference reference;
-    DatabaseReference dbnameref, dbrollref, dbfacultyref;
+    DatabaseReference dbnameref, dbrollref, dbfacultyref, dbfacultyuid;
     String studentName, studentRollNumber, facultyName;
     HashMap<String,String> hashMapFaculty=new HashMap<>();
     FirebaseAuth auth;
@@ -57,6 +57,7 @@ public class QueriesActivity extends AppCompatActivity {
         dbrollref = FirebaseDatabase.getInstance().getReference().child("IIMTU").child("Student");
         dbnameref = FirebaseDatabase.getInstance().getReference().child("IIMTU").child("Student");
         dbfacultyref = FirebaseDatabase.getInstance().getReference().child("IIMTU").child("Faculty");
+        dbfacultyuid = FirebaseDatabase.getInstance().getReference().child("IIMTU").child("Faculty");
 
         binding.btnSendLink.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -181,7 +182,6 @@ public class QueriesActivity extends AppCompatActivity {
 
             }
         });
-
 
 
 

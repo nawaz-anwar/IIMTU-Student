@@ -51,6 +51,8 @@ public class NoticeAdapter extends FirebaseRecyclerAdapter<NoticeData,NoticeAdap
 
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 holder.notificationTitle.getContext().startActivity(intent);
+
+
             }
         });
 
