@@ -68,6 +68,7 @@ public class QueriesActivity extends AppCompatActivity {
                     binding.queriesTitle.requestFocus();
                 } else {
                     sendlink();
+                    progressDialog.dismiss();
                 }
             }
         });
@@ -169,7 +170,7 @@ public class QueriesActivity extends AppCompatActivity {
 
                     AddFaculty br = dsp.getValue(AddFaculty.class);
 
-                    hashMapFaculty.put(br.getFacultyName(),br.getFacultyId());
+
 
                     listFacultyName.add(br.getFacultyName());
 
@@ -188,14 +189,15 @@ public class QueriesActivity extends AppCompatActivity {
     }
     private void sendlink() {
 
-
         String queriesTitle = binding.queriesTitle.getEditText().getText().toString();
         Queries queries = new Queries(studentName, studentRollNumber, facultyName, queriesTitle);
 
         reference.child(facultyName).push().setValue(queries).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void unused) {
-                progressDialog.dismiss();
+                Toast.makeText(QueriesActivity.this, "Queries Sent...", Toast.LENGTH_SHORT).show();
+
+                binding.queriesTitle.getEditText().setText("");
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override

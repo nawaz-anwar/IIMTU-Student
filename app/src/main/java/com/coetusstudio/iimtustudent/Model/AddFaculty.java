@@ -121,4 +121,12 @@ public class AddFaculty {
     public void setFacultySection(String facultySection) {
         this.facultySection = facultySection;
     }
+
+    public String getFacultyUid() {
+        return facultyUid;
+    }
+
+    public void setFacultyUid(String facultyUid) {
+        this.facultyUid = facultyUid;
+    }
 }
