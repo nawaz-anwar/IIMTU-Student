@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -96,5 +97,11 @@ public class NotesActivity extends AppCompatActivity {
         notesAdapter.startListening();
         recviewNotes.setAdapter(notesAdapter);
 
+    }
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(NotesActivity.this, MainActivity.class);
+        startActivity(intent);
+        finish();
     }
 }

@@ -61,4 +61,11 @@ public class ViewpdfActivity extends AppCompatActivity {
 
         pdfview.loadUrl("http://docs.google.com/gview?embedded=true&url=" + url);
     }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(ViewpdfActivity.this, NotesActivity.class);
+        startActivity(intent);
+        finish();
+    }
 }
