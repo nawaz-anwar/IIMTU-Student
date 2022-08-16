@@ -9,4 +9,6 @@
     <color name="white">#FFFFFFFF</color>
     <color name="bordercolor">#2196F3</color>
     <color name="btnbgcolor">#FF9800</color>
+    <color name="backgroundcornersStart">#ED689A</color>
+    <color name="backgroundcornersEnd">#AE0E4E</color>
 </resources>

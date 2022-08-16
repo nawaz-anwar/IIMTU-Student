@@ -14,6 +14,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.IIMTUStudent">
         <activity
+            android:name=".SelectSubjectAttendance"
+            android:exported="false" />
+        <activity
             android:name=".ImageViewActivity"
             android:exported="false" />
         <activity

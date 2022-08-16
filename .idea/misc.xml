@@ -6,6 +6,7 @@
         <entry key="..\:/App data/IIMTUStudent/app/src/main/res/drawable/bgsinglerow.xml" value="0.20052083333333334" />
         <entry key="..\:/App data/IIMTUStudent/app/src/main/res/drawable/boundry.xml" value="0.20052083333333334" />
         <entry key="..\:/App data/IIMTUStudent/app/src/main/res/drawable/circular.xml" value="0.20052083333333334" />
+        <entry key="..\:/App data/IIMTUStudent/app/src/main/res/drawable/cornersbg.xml" value="0.20052083333333334" />
         <entry key="..\:/App data/IIMTUStudent/app/src/main/res/drawable/round_button.xml" value="0.20052083333333334" />
         <entry key="..\:/App data/IIMTUStudent/app/src/main/res/drawable/spinnerbg.xml" value="0.20052083333333334" />
         <entry key="..\:/App data/IIMTUStudent/app/src/main/res/layout/activity_attendance.xml" value="0.184375" />
@@ -20,6 +21,7 @@
         <entry key="..\:/App data/IIMTUStudent/app/src/main/res/layout/activity_notification.xml" value="0.184375" />
         <entry key="..\:/App data/IIMTUStudent/app/src/main/res/layout/activity_payment.xml" value="0.184375" />
         <entry key="..\:/App data/IIMTUStudent/app/src/main/res/layout/activity_queries.xml" value="0.184375" />
+        <entry key="..\:/App data/IIMTUStudent/app/src/main/res/layout/activity_select_subject_attendance.xml" value="0.184375" />
         <entry key="..\:/App data/IIMTUStudent/app/src/main/res/layout/activity_sessional_assignment_marks.xml" value="0.184375" />
         <entry key="..\:/App data/IIMTUStudent/app/src/main/res/layout/activity_studentdetails.xml" value="0.22" />
         <entry key="..\:/App data/IIMTUStudent/app/src/main/res/layout/activity_viewpdf.xml" value="0.184375" />
