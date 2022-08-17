@@ -10,4 +10,7 @@
     <string name="menu_home">Home</string>
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
+
+    <string name="attendance_alert">*If you not find any subject option Please! check your net connection or wait 10-15 seconds</string>
+    <string name="queries_alert">*If you not find Name, Roll Number, Faculty Name option Please! check your net connection or wait 10-15 seconds</string>
 </resources>

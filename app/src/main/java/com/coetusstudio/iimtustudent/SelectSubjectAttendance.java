@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Toast;
 
 import com.coetusstudio.iimtustudent.Model.AddFaculty;
 import com.coetusstudio.iimtustudent.databinding.ActivitySelectSubjectAttendanceBinding;
@@ -85,6 +86,7 @@ public class SelectSubjectAttendance extends AppCompatActivity {
 
             }
         });
+
 
     }
 }
