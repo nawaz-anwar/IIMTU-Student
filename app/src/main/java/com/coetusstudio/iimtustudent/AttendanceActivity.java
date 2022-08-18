@@ -31,11 +31,7 @@ public class AttendanceActivity extends AppCompatActivity {
     TextView subname;
     TextView atten_tv;
     TextView absent_tv;
-    TextView class_tv;
     ListView listViewbydate;
-    private Toolbar toolbar;
-
-    String Totalattendence,absent;
 
     DatabaseReference attendancerecord,attendancerecbydate;
     ArrayList attendance= new ArrayList<>();
@@ -47,26 +43,19 @@ public class AttendanceActivity extends AppCompatActivity {
         setContentView(R.layout.activity_attendance);
 
         Intent intent=getIntent();
-        sid=intent.getStringExtra("sid");
-        subid=intent.getStringExtra("subId");
-        subjectName = intent.getStringExtra("SubName");
+        sid=intent.getStringExtra("studentRollNumber");
+        subid=intent.getStringExtra("studentSection");
+        subjectName = intent.getStringExtra("subjectName");
 
 
-        attendancerecord= FirebaseDatabase.getInstance().getReference("AttendanceRecord").child(subid);
+        attendancerecord= FirebaseDatabase.getInstance().getReference().child("AttendenRecordSheet").child(subid).child(subjectName);
         attendancerecord.keepSynced(true);
 
-
-
-
-        //toolbar=findViewById(R.id.home_toolbar);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("Attendance Sheet");
 
         subname=findViewById(R.id.subname_tv);
         atten_tv=findViewById(R.id.attendence_tv);
         absent_tv=findViewById(R.id.absent_tv);
         mpercent_tv=findViewById(R.id.tv);
-        class_tv=findViewById(R.id.class_leave_tv);
 
         listViewbydate=(ListView)findViewById(R.id.listviewbydate);
 
@@ -81,10 +70,6 @@ public class AttendanceActivity extends AppCompatActivity {
         mpercentprogressbarr.setProgressDrawable(drawable);
 
 
-
-
-
-        //attendancerecbydate.keepSynced(true);
 
         attendancerecord.addValueEventListener(new ValueEventListener() {
             @Override
@@ -115,7 +100,6 @@ public class AttendanceActivity extends AppCompatActivity {
                 atten_tv.setText(attendence);
                 mpercent_tv.setText(mmper);
                 mpercentprogressbarr.setProgress(mpercentint);
-                class_tv.setText(clslvt);
 
                 if(Float.valueOf(percent)<=75){
                     mpercent_tv.setTextColor(Color.RED);
@@ -126,17 +110,7 @@ public class AttendanceActivity extends AppCompatActivity {
                 else if(Float.valueOf(percent)>=85){
                     mpercent_tv.setTextColor(Color.MAGENTA);
                 }
-
-                if(Integer.valueOf(clslvt)<=0)
-                {
-                    class_tv.setTextColor(Color.RED);
-                }
-                else if (Integer.valueOf(clslvt)>0 && Integer.valueOf(clslvt)<=5)
-                {
-                    class_tv.setTextColor(Color.BLUE);
-                }
                 else {
-                    class_tv.setTextColor(Color.MAGENTA);
                 }
 
                 tpresent = 0;
@@ -163,7 +137,7 @@ public class AttendanceActivity extends AppCompatActivity {
     public void rec(){
 
 
-        attendancerecbydate= FirebaseDatabase.getInstance().getReference("AttendanceRecord");
+        attendancerecbydate= FirebaseDatabase.getInstance().getReference().child("AttendenRecordSheet").child(subid).child(subjectName);
         attendance.add("Date/Time"+"            "+"Attendance Value");
         attendancerecbydate.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override

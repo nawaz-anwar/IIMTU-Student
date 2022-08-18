@@ -1,6 +1,8 @@
 package com.coetusstudio.iimtustudent.Adapter;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
+import android.content.res.Resources;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -41,7 +43,7 @@ public class SessionalMarksAdapter extends FirebaseRecyclerAdapter<SessionalMark
         holder.sub3Marks.setText(SessionalMarks.getSessionalMarks3());
         holder.sub4Marks.setText(SessionalMarks.getSessionalMarks4());
         holder.sub5Marks.setText(SessionalMarks.getSessionalMarks5());
-
+        holder.studentRollNumberSessional.setText(SessionalMarks.getStudentRollNo());
 
 
     } // End of OnBindViewMethod
@@ -57,7 +59,7 @@ public class SessionalMarksAdapter extends FirebaseRecyclerAdapter<SessionalMark
 
     class myviewholder extends RecyclerView.ViewHolder
     {
-        TextView marksTitle, sub1, sub2, sub3, sub4, sub5, sub1Marks, sub2Marks, sub3Marks, sub4Marks, sub5Marks;
+        TextView marksTitle, sub1, sub2, sub3, sub4, sub5, sub1Marks, sub2Marks, sub3Marks, sub4Marks, sub5Marks, studentRollNumberSessional;
         public myviewholder(@NonNull View itemView)
         {
             super(itemView);
@@ -72,6 +74,8 @@ public class SessionalMarksAdapter extends FirebaseRecyclerAdapter<SessionalMark
             sub3Marks=itemView.findViewById(R.id.sub3Marks);
             sub4Marks=itemView.findViewById(R.id.sub4Marks);
             sub5Marks=itemView.findViewById(R.id.sub5Marks);
+            studentRollNumberSessional=itemView.findViewById(R.id.studentRollNumberSessional);
+
 
         }
     }

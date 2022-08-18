@@ -26,21 +26,24 @@ import java.util.List;
 public class SelectSubjectAttendance extends AppCompatActivity {
 
     ActivitySelectSubjectAttendanceBinding binding;
-    String item_subject, studentSection;
-    DatabaseReference dbSubjectRef, dbSectionRef;
+    String item_subject, studentSection, studentRollNumber;
+    DatabaseReference dbSectionRef, dbSubjectRef;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivitySelectSubjectAttendanceBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        dbSubjectRef = FirebaseDatabase.getInstance().getReference().child("AttendenRecordSheet");
         dbSectionRef = FirebaseDatabase.getInstance().getReference().child("IIMTU").child("Student");
+        dbSubjectRef=FirebaseDatabase.getInstance().getReference().child("IIMTU").child("Faculty");
+        dbSubjectRef.keepSynced(true);
+
 
         dbSectionRef.child(FirebaseAuth.getInstance().getUid()).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 studentSection=snapshot.child("studentSection").getValue().toString();
+                studentRollNumber=snapshot.child("studentRollNumber").getValue().toString();
 
 
                 //Spinner for Subject
@@ -63,12 +66,14 @@ public class SelectSubjectAttendance extends AppCompatActivity {
                     }
                 });
 
-                dbSubjectRef.child(studentSection).addListenerForSingleValueEvent(new ValueEventListener() {
+                dbSubjectRef.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         for(DataSnapshot dsp :dataSnapshot.getChildren()){
 
-                            listSubject.add(dsp.getValue().toString());
+                            AddFaculty br = dsp.getValue(AddFaculty.class);
+
+                            listSubject.add(br.getFacultySubject());
 
                         }
                     }
@@ -84,6 +89,17 @@ public class SelectSubjectAttendance extends AppCompatActivity {
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 
+            }
+        });
+
+        binding.proceedBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(SelectSubjectAttendance.this,AttendanceActivity.class);
+                intent.putExtra("subjectName",item_subject);
+                intent.putExtra("studentSection",studentSection);
+                intent.putExtra("studentRollNumber",studentRollNumber);
+                startActivity(intent);
             }
         });
 

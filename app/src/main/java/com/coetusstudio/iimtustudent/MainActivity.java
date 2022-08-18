@@ -194,8 +194,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.exists()){
-
-                    navUsername.setText(snapshot.child("studentName").getValue().toString());
+                    String userName= snapshot.child("studentName").getValue().toString();
+                    navUsername.setText(userName);
                     navUserMail.setText(snapshot.child("studentEmail").getValue().toString());
                     navUserRoll.setText(snapshot.child("studentRollNumber").getValue().toString());
                     String url = snapshot.child("studentImage").getValue().toString();

@@ -190,48 +190,6 @@
 
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:padding="1dp">
-
-            <RelativeLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="2">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="5dp"
-                    android:text="Class you can leave :"
-                    android:textAppearance="?android:textAppearanceMedium"
-                    android:textColor="#0A7BDD"
-                    />
-
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="2">
-
-                <TextView
-                    android:id="@+id/class_leave_tv"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="5dp"
-                    android:text="0"
-                    android:textStyle="bold"
-                    android:textColor="#000000"
-                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
-
-            </RelativeLayout>
-
-
-        </LinearLayout>
-
 
 
 
