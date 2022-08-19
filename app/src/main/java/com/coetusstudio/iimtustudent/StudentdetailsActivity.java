@@ -53,7 +53,9 @@ public class StudentdetailsActivity extends AppCompatActivity {
                 binding.studentEnroolmentNumber.setText(studentDetails.getStudentEnrollmentNumber());
                 binding.studentRollNumber.setText(studentDetails.getStudentRollNumber());
                 binding.studentGrade.setText(studentDetails.getStudentGrade());
-                binding.studentAttendance.setText(studentDetails.getStudentAttendance());
+                binding.studentSemester.setText(studentDetails.getStudentSemester());
+                binding.studentSection.setText(studentDetails.getStudentSection());
+                //binding.studentAttendance.setText(studentDetails.getStudentAttendance());
                 String url = snapshot.child("studentImage").getValue().toString();
                 Glide.with(getApplicationContext()).load(url).error(R.drawable.manimg).into(binding.studentImage);
 

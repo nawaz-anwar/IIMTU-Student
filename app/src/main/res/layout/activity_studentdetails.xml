@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="5dp"
-    android:background="#92FB8A"
+    android:background="@drawable/bglight"
     tools:context=".StudentdetailsActivity">
 
     <de.hdodenhof.circleimageview.CircleImageView
@@ -83,7 +83,8 @@
                 android:layout_marginLeft="10dp"
                 android:text="xyz@gmail.com"
                 android:textColor="#5C00FF"
-                android:textSize="20sp" />
+                android:textSize="20sp"
+                android:textStyle="bold"/>
 
         </LinearLayout>
 
@@ -107,7 +108,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:text="47358744654"
-                android:textSize="20sp" />
+                android:textSize="20sp"
+                android:textStyle="bold"/>
 
         </LinearLayout>
 
@@ -131,7 +133,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:text="21210099"
-                android:textSize="20sp" />
+                android:textSize="20sp"
+                android:textStyle="bold"/>
 
         </LinearLayout>
 
@@ -155,7 +158,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:text="IIMTU/363"
-                android:textSize="20sp" />
+                android:textSize="20sp"
+                android:textStyle="bold"/>
 
         </LinearLayout>
 
@@ -179,7 +183,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:text="B.Tech CSE"
-                android:textSize="20sp" />
+                android:textSize="20sp"
+                android:textStyle="bold"/>
 
         </LinearLayout>
 
@@ -203,7 +208,33 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:text="2"
-                android:textSize="20sp" />
+                android:textSize="20sp"
+                android:textStyle="bold"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Section:"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/studentSection"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="2"
+                android:textSize="20sp"
+                android:textStyle="bold"/>
 
         </LinearLayout>
 
@@ -227,7 +258,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:text="A+"
-                android:textSize="20sp" />
+                android:textSize="20sp"
+                android:textStyle="bold"/>
 
         </LinearLayout>
 
@@ -251,33 +283,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:text="68000/85000"
-                android:textSize="20sp" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Attendance:"
-                android:textColor="#000000"
                 android:textSize="20sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/studentAttendance"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:text="83%"
-                android:textSize="20sp" />
+                android:textStyle="bold"/>
 
         </LinearLayout>
+
 
     </LinearLayout>
 
