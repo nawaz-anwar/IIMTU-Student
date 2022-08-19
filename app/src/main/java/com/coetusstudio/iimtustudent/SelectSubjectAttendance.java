@@ -26,7 +26,7 @@ import java.util.List;
 public class SelectSubjectAttendance extends AppCompatActivity {
 
     ActivitySelectSubjectAttendanceBinding binding;
-    String item_subject, studentSection, studentRollNumber;
+    String item_subject, studentSection, studentRollNumber, studentName;
     DatabaseReference dbSectionRef, dbSubjectRef;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +44,8 @@ public class SelectSubjectAttendance extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 studentSection=snapshot.child("studentSection").getValue().toString();
                 studentRollNumber=snapshot.child("studentRollNumber").getValue().toString();
+                studentName=snapshot.child("studentName").getValue().toString();
+
 
 
                 //Spinner for Subject
@@ -99,6 +101,7 @@ public class SelectSubjectAttendance extends AppCompatActivity {
                 intent.putExtra("subjectName",item_subject);
                 intent.putExtra("studentSection",studentSection);
                 intent.putExtra("studentRollNumber",studentRollNumber);
+                intent.putExtra("studentName",studentName);
                 startActivity(intent);
             }
         });

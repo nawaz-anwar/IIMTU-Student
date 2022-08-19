@@ -24,11 +24,11 @@ import java.util.ArrayList;
 
 public class AttendanceActivity extends AppCompatActivity {
 
-    String sid,subid,subjectName;
+    String sid,subid,subjectName,studentName;
     int tpresent = 0;
     int tattencount = 0;
 
-    TextView subname;
+    TextView studentNameAttendance,studentRollNumberAttendance, studentSubjectAttendance;
     TextView atten_tv;
     TextView absent_tv;
     ListView listViewbydate;
@@ -46,21 +46,28 @@ public class AttendanceActivity extends AppCompatActivity {
         sid=intent.getStringExtra("studentRollNumber");
         subid=intent.getStringExtra("studentSection");
         subjectName = intent.getStringExtra("subjectName");
+        studentName = intent.getStringExtra("studentName");
 
 
         attendancerecord= FirebaseDatabase.getInstance().getReference().child("AttendenRecordSheet").child(subid).child(subjectName);
         attendancerecord.keepSynced(true);
 
 
-        subname=findViewById(R.id.subname_tv);
+
         atten_tv=findViewById(R.id.attendence_tv);
         absent_tv=findViewById(R.id.absent_tv);
         mpercent_tv=findViewById(R.id.tv);
+        studentNameAttendance=findViewById(R.id.studentNameAttendance);
+        studentRollNumberAttendance=findViewById(R.id.studentRollNumberAttendance);
+        studentSubjectAttendance=findViewById(R.id.studentSubjectAttendance);
+
+        studentNameAttendance.setText(studentName);
+        studentRollNumberAttendance.setText(sid);
+        studentSubjectAttendance.setText(subjectName);
 
         listViewbydate=(ListView)findViewById(R.id.listviewbydate);
 
         //progress bar code
-        subname.setText(subjectName);
         Resources res = getResources();
         Drawable drawable = res.getDrawable(R.drawable.circular);
         mpercentprogressbarr = findViewById(R.id.circularProgressbar);
@@ -137,14 +144,14 @@ public class AttendanceActivity extends AppCompatActivity {
     public void rec(){
 
 
-        attendancerecbydate= FirebaseDatabase.getInstance().getReference().child("AttendenRecordSheet").child(subid).child(subjectName);
+        attendancerecbydate= FirebaseDatabase.getInstance().getReference().child("AttendenRecordSheet");
         attendance.add("Date/Time"+"            "+"Attendance Value");
         attendancerecbydate.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 attendance.clear();
-                attendance.add("Date/Time"+"                "+"Attendance Value");
-                for(DataSnapshot dspp :dataSnapshot.child(subid).getChildren()){
+                attendance.add("Date/Time"+"                                   "+"Attendance");
+                for(DataSnapshot dspp :dataSnapshot.child(subid).child(subjectName).getChildren()){
                     String datetime,avalue;
                     datetime=dspp.getKey();
                     avalue=dspp.child(sid).child("atvalue").getValue().toString();
