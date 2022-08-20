@@ -106,7 +106,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
             android:hint="Type Your Queries"
-            android:textColorHint="@color/bordercolor">
+            android:background="#fff">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"

@@ -53,6 +53,7 @@ public class StudentdetailsActivity extends AppCompatActivity {
                 binding.studentEnroolmentNumber.setText(studentDetails.getStudentEnrollmentNumber());
                 binding.studentRollNumber.setText(studentDetails.getStudentRollNumber());
                 binding.studentGrade.setText(studentDetails.getStudentGrade());
+                binding.studentBranch.setText(studentDetails.getStudentBranch());
                 binding.studentSemester.setText(studentDetails.getStudentSemester());
                 binding.studentSection.setText(studentDetails.getStudentSection());
                 //binding.studentAttendance.setText(studentDetails.getStudentAttendance());
