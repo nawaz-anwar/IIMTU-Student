@@ -2,6 +2,8 @@ package com.coetusstudio.iimtustudent;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;
@@ -10,10 +12,12 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
+import com.coetusstudio.iimtustudent.Adapter.QueriesAdapter;
 import com.coetusstudio.iimtustudent.Model.AddFaculty;
 import com.coetusstudio.iimtustudent.Model.Queries;
 import com.coetusstudio.iimtustudent.Model.StudentDetails;
 import com.coetusstudio.iimtustudent.databinding.ActivityQueriesBinding;
+import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
@@ -34,11 +38,10 @@ public class QueriesActivity extends AppCompatActivity {
     DatabaseReference reference;
     DatabaseReference dbnameref, dbrollref, dbfacultyref, dbfacultyuid;
     String studentName, studentRollNumber, facultyName;
-    HashMap<String,String> hashMapFaculty=new HashMap<>();
     FirebaseAuth auth;
     FirebaseUser currentUser;
-    ProgressDialog progressDialog;
-    String facultyId;
+    RecyclerView recviewQueries;
+    QueriesAdapter queriesAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -184,7 +187,33 @@ public class QueriesActivity extends AppCompatActivity {
             }
         });
 
+        FirebaseDatabase.getInstance().getReference().child("IIMTU").child("Student").child(currentUser.getUid()).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.exists()){
 
+                    String queriesStudentRollNumber = snapshot.child("studentRollNumber").getValue().toString();
+
+                    LinearLayoutManager linearLayoutManager = new LinearLayoutManager(QueriesActivity.this);
+                    recviewQueries=(RecyclerView)findViewById(R.id.rcQueries);
+                    recviewQueries.setLayoutManager(linearLayoutManager);
+                    linearLayoutManager.setReverseLayout(true);
+                    linearLayoutManager.setStackFromEnd(true);
+                    FirebaseRecyclerOptions<Queries> options =
+                            new FirebaseRecyclerOptions.Builder<Queries>()
+                                    .setQuery(FirebaseDatabase.getInstance().getReference().child("Resolve Queries").child(queriesStudentRollNumber), Queries.class)
+                                    .build();
+                    queriesAdapter=new QueriesAdapter(options);
+                    recviewQueries.setAdapter(queriesAdapter);
+                    queriesAdapter.startListening();
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
 
     }
     private void sendlink() {
@@ -205,5 +234,11 @@ public class QueriesActivity extends AppCompatActivity {
                 Toast.makeText(QueriesActivity.this, "Please, try again later!", Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        queriesAdapter.stopListening();
     }
 }

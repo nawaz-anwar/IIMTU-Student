@@ -11,9 +11,9 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:text="Queries Section"
-        android:textSize="30sp"
+        android:textSize="25sp"
         android:textColor="#000000"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -25,7 +25,7 @@
         android:id="@+id/view2"
         android:layout_width="300dp"
         android:layout_height="5dp"
-        android:layout_marginTop="88dp"
+        android:layout_marginTop="50dp"
         android:background="@color/btnbgcolor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
@@ -39,28 +39,28 @@
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintHorizontal_bias="0.591"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view2"
-        app:layout_constraintVertical_bias="0.159">
+        app:layout_constraintVertical_bias="0.024">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/queries_alert"
-            android:textColor="#5200E3"
-            android:textStyle="italic"
             android:layout_marginLeft="3sp"
             android:layout_marginBottom="5dp"
-            android:textSize="10sp"/>
+            android:text="@string/queries_alert"
+            android:textColor="#5200E3"
+            android:textSize="10sp"
+            android:textStyle="italic" />
 
         <Spinner
             android:id="@+id/queriesName"
             android:layout_width="match_parent"
             android:layout_height="50dp"
+            android:layout_marginBottom="7dp"
             android:background="@drawable/spinnerbg"
             android:spinnerMode="dialog"
-            android:layout_marginBottom="7dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -73,9 +73,9 @@
             android:id="@+id/queriesRollNumber"
             android:layout_width="match_parent"
             android:layout_height="50dp"
+            android:layout_marginBottom="7dp"
             android:background="@drawable/spinnerbg"
             android:spinnerMode="dialog"
-            android:layout_marginBottom="7dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -88,9 +88,9 @@
             android:id="@+id/queriesFaculty"
             android:layout_width="match_parent"
             android:layout_height="50dp"
+            android:layout_marginBottom="7dp"
             android:background="@drawable/spinnerbg"
             android:spinnerMode="dialog"
-            android:layout_marginBottom="7dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -105,8 +105,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
-            android:hint="Type Your Queries"
-            android:background="#fff">
+            android:background="#fff"
+            android:hint="Type Your Queries">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
@@ -128,9 +128,45 @@
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.545"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
-        app:layout_constraintVertical_bias="0.284" />
+        app:layout_constraintVertical_bias="0.066" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Recent Resolve Queries"
+        android:textColor="#000000"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnSendLink"
+        app:layout_constraintVertical_bias="0.287" />
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="300dp"
+        android:layout_height="5dp"
+        android:background="@color/btnbgcolor"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4"
+        app:layout_constraintVertical_bias="0.025" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rcQueries"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="480dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/view" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
