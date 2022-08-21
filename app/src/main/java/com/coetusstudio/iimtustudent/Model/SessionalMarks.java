@@ -2,11 +2,13 @@ package com.coetusstudio.iimtustudent.Model;
 
 public class SessionalMarks {
 
-    String sessionalTitle, studentRollNo, sessionalSub1, sessionalMarks1, sessionalSub2, sessionalMarks2, sessionalSub3, sessionalMarks3, sessionalSub4, sessionalMarks4, sessionalSub5, sessionalMarks5;
+    String sessionalTitle, studentRollNo, studentName, sessionalMaxMarks, sessionalSub1, sessionalMarks1, sessionalSub2, sessionalMarks2, sessionalSub3, sessionalMarks3, sessionalSub4, sessionalMarks4, sessionalSub5, sessionalMarks5;
 
-    public SessionalMarks(String sessionalTitle, String studentRollNo, String sessionalSub1, String sessionalMarks1, String sessionalSub2, String sessionalMarks2, String sessionalSub3, String sessionalMarks3, String sessionalSub4, String sessionalMarks4, String sessionalSub5, String sessionalMarks5) {
+    public SessionalMarks(String sessionalTitle, String studentRollNo, String studentName, String sessionalMaxMarks, String sessionalSub1, String sessionalMarks1, String sessionalSub2, String sessionalMarks2, String sessionalSub3, String sessionalMarks3, String sessionalSub4, String sessionalMarks4, String sessionalSub5, String sessionalMarks5) {
         this.sessionalTitle = sessionalTitle;
         this.studentRollNo = studentRollNo;
+        this.studentName = studentName;
+        this.sessionalMaxMarks = sessionalMaxMarks;
         this.sessionalSub1 = sessionalSub1;
         this.sessionalMarks1 = sessionalMarks1;
         this.sessionalSub2 = sessionalSub2;
@@ -36,6 +38,22 @@ public class SessionalMarks {
 
     public void setStudentRollNo(String studentRollNo) {
         this.studentRollNo = studentRollNo;
+    }
+
+    public String getStudentName() {
+        return studentName;
+    }
+
+    public void setStudentName(String studentName) {
+        this.studentName = studentName;
+    }
+
+    public String getSessionalMaxMarks() {
+        return sessionalMaxMarks;
+    }
+
+    public void setSessionalMaxMarks(String sessionalMaxMarks) {
+        this.sessionalMaxMarks = sessionalMaxMarks;
     }
 
     public String getSessionalSub1() {

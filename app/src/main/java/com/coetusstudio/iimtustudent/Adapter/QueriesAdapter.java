@@ -12,11 +12,14 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.coetusstudio.iimtustudent.Model.Queries;
 import com.coetusstudio.iimtustudent.R;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.FirebaseDatabase;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class QueriesAdapter extends FirebaseRecyclerAdapter<Queries,QueriesAdapter.myviewholder> {
 
@@ -33,6 +36,11 @@ public class QueriesAdapter extends FirebaseRecyclerAdapter<Queries,QueriesAdapt
         holder.queriesFacultyName.setText(Queries.getFacultyName());
         holder.queriesStudentRollNumber.setText(Queries.getQueriesRollNumber());
         holder.queriesTitleAdapter.setText(Queries.getQueriesTitle());
+        Glide.with(holder.img.getContext()).load(Queries.getFacultyImage())
+                .placeholder(R.drawable.manimg)
+                .circleCrop()
+                .error(R.drawable.manimg)
+                .into(holder.img);
 
         /*
         holder.delete.setOnClickListener(new View.OnClickListener() {
@@ -77,14 +85,15 @@ public class QueriesAdapter extends FirebaseRecyclerAdapter<Queries,QueriesAdapt
     class myviewholder extends RecyclerView.ViewHolder
     {
         TextView queriesFacultyName, queriesStudentRollNumber, queriesTitleAdapter, queriesDelete;
-        ImageView delete;
+        CircleImageView img;
         public myviewholder(@NonNull View itemView)
         {
             super(itemView);
             queriesFacultyName=itemView.findViewById(R.id.queriesFacultyName);
             queriesStudentRollNumber=itemView.findViewById(R.id.queriesStudentRollNumber);
             queriesTitleAdapter=itemView.findViewById(R.id.queriesTitleAdapter);
-            delete=(ImageView)itemView.findViewById(R.id.queriesDelete);
+            img=itemView.findViewById(R.id.queriesFacultyImage);
+            //delete=(ImageView)itemView.findViewById(R.id.queriesDelete);
 
         }
     }

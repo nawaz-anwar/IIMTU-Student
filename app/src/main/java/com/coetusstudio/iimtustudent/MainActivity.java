@@ -42,7 +42,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
-    CardView lecture, studentDetails, attendance, receivedNotification, marks, payment, notes, queries;
+    CardView lecture, studentDetails, attendance, receivedNotification, marks, facultyDetails, notes, queries;
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityMainBinding binding;
     private View header;
@@ -76,7 +76,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         toolbar = findViewById(R.id.toolbar);
 
         attendance = findViewById(R.id.attendance);
-        payment = findViewById(R.id.payment);
+        facultyDetails = findViewById(R.id.facultyDetails);
         receivedNotification = findViewById(R.id.receivedNotification);
         lecture = findViewById(R.id.lecture);
         studentDetails = findViewById(R.id.studentDetails);
@@ -87,7 +87,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
         attendance.setOnClickListener(this);
-        payment.setOnClickListener(this);
+        facultyDetails.setOnClickListener(this);
         receivedNotification.setOnClickListener(this);
         lecture.setOnClickListener(this);
         studentDetails.setOnClickListener(this);
@@ -170,8 +170,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Intent intent5 = new Intent(MainActivity.this, NotesActivity.class);
                 startActivity(intent5);
                 break;
-            case R.id.payment:
-                Intent intent6 = new Intent(MainActivity.this, PaymentActivity.class);
+            case R.id.facultyDetails:
+                Intent intent6 = new Intent(MainActivity.this, FacultyDeatilsActivity.class);
                 startActivity(intent6);
                 break;
             case R.id.queries:

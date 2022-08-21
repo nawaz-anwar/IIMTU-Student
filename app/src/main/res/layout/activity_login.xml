@@ -15,8 +15,8 @@
       app:layout_constraintHorizontal_bias="0.497"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toTopOf="parent"
-      app:layout_constraintVertical_bias="0.079"
-      app:srcCompat="@drawable/iimtulogo"/>
+      app:layout_constraintVertical_bias="0.048"
+      app:srcCompat="@drawable/iimtulogo" />
 
   <TextView
       android:layout_width="wrap_content"
@@ -39,20 +39,8 @@
       app:layout_constraintHorizontal_bias="0.494"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toTopOf="parent"
-      app:layout_constraintVertical_bias="0.731">
+      app:layout_constraintVertical_bias="0.677">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/admissionNumberStudent" style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:hint="Your Admission Number"
-        android:textColorHint="@color/bordercolor">
-      <com.google.android.material.textfield.TextInputEditText
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:inputType="number"/>
-    </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/emailStudent"
@@ -62,40 +50,43 @@
         android:layout_marginBottom="10dp"
         android:hint="Your Email"
         android:textColorHint="@color/bordercolor">
+
       <com.google.android.material.textfield.TextInputEditText
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
-          android:inputType="textEmailAddress"/>
+          android:inputType="textEmailAddress" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/passwordStudent" style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:id="@+id/passwordStudent"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
         android:hint="Your Password"
         android:textColorHint="@color/bordercolor"
         app:passwordToggleEnabled="true">
+
       <com.google.android.material.textfield.TextInputEditText
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
-          android:inputType="textPassword"/>
+          android:inputType="textPassword" />
 
       <TextView
+          android:id="@+id/forqetPassword"
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
+          android:layout_gravity="center_horizontal"
           android:layout_weight="1"
-          android:id="@+id/forqetPassword"
-          android:text="                                        Request Forget Password!"
-          android:layout_gravity="center_horizontal"/>
+          android:text="                                        Request Forget Password!" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnLogin"
         android:layout_width="178dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:background="@drawable/round_button"
-        android:id="@+id/btnLogin"
         android:padding="10dp"
         android:text="Login"
         android:textColor="#000"

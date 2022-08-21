@@ -1,25 +1,26 @@
 package com.coetusstudio.iimtustudent.Model;
 
 public class Queries {
-        String queriesName, queriesRollNumber, facultyName, queriesTitle, facultyId, studentId;
+        String queriesName, queriesRollNumber, facultyName, queriesTitle, facultyImage, studentImage;
 
-        public Queries(String queriesName, String queriesRollNumber, String facultyName, String queriesTitle) {
+        public Queries(String queriesName, String queriesRollNumber, String facultyName, String queriesTitle, String facultyImage, String studentImage) {
                 this.queriesName = queriesName;
                 this.queriesRollNumber = queriesRollNumber;
                 this.facultyName = facultyName;
                 this.queriesTitle = queriesTitle;
-        }
-
-        public Queries(String queriesName, String queriesRollNumber, String facultyName, String queriesTitle, String facultyId, String studentId) {
-                this.queriesName = queriesName;
-                this.queriesRollNumber = queriesRollNumber;
-                this.facultyName = facultyName;
-                this.queriesTitle = queriesTitle;
-                this.facultyId = facultyId;
-                this.studentId = studentId;
+                this.facultyImage = facultyImage;
+                this.studentImage = studentImage;
         }
 
         public Queries() {
+        }
+
+        public Queries(String queriesName, String queriesRollNumber, String facultyName, String queriesTitle, String studentImage) {
+                this.queriesName = queriesName;
+                this.queriesRollNumber = queriesRollNumber;
+                this.facultyName = facultyName;
+                this.queriesTitle = queriesTitle;
+                this.studentImage = studentImage;
         }
 
         public String getQueriesName() {
@@ -54,19 +55,19 @@ public class Queries {
                 this.queriesTitle = queriesTitle;
         }
 
-        public String getFacultyId() {
-                return facultyId;
+        public String getFacultyImage() {
+                return facultyImage;
         }
 
-        public void setFacultyId(String facultyId) {
-                this.facultyId = facultyId;
+        public void setFacultyImage(String facultyImage) {
+                this.facultyImage = facultyImage;
         }
 
-        public String getStudentId() {
-                return studentId;
+        public String getStudentImage() {
+                return studentImage;
         }
 
-        public void setStudentId(String studentId) {
-                this.studentId = studentId;
+        public void setStudentImage(String studentImage) {
+                this.studentImage = studentImage;
         }
 }

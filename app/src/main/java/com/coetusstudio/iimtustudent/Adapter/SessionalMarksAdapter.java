@@ -43,7 +43,13 @@ public class SessionalMarksAdapter extends FirebaseRecyclerAdapter<SessionalMark
         holder.sub3Marks.setText(SessionalMarks.getSessionalMarks3());
         holder.sub4Marks.setText(SessionalMarks.getSessionalMarks4());
         holder.sub5Marks.setText(SessionalMarks.getSessionalMarks5());
+        holder.maxMarks1.setText(SessionalMarks.getSessionalMaxMarks());
+        holder.maxMarks2.setText(SessionalMarks.getSessionalMaxMarks());
+        holder.maxMarks3.setText(SessionalMarks.getSessionalMaxMarks());
+        holder.maxMarks4.setText(SessionalMarks.getSessionalMaxMarks());
+        holder.maxMarks5.setText(SessionalMarks.getSessionalMaxMarks());
         holder.studentRollNumberSessional.setText(SessionalMarks.getStudentRollNo());
+        holder.studentNameSessional.setText(SessionalMarks.getStudentName());
 
 
     } // End of OnBindViewMethod
@@ -59,7 +65,7 @@ public class SessionalMarksAdapter extends FirebaseRecyclerAdapter<SessionalMark
 
     class myviewholder extends RecyclerView.ViewHolder
     {
-        TextView marksTitle, sub1, sub2, sub3, sub4, sub5, sub1Marks, sub2Marks, sub3Marks, sub4Marks, sub5Marks, studentRollNumberSessional;
+        TextView marksTitle, sub1, sub2, sub3, sub4, sub5, sub1Marks, sub2Marks, sub3Marks, sub4Marks, sub5Marks, studentRollNumberSessional, studentNameSessional, maxMarks1, maxMarks2, maxMarks3, maxMarks4, maxMarks5;
         public myviewholder(@NonNull View itemView)
         {
             super(itemView);
@@ -74,8 +80,13 @@ public class SessionalMarksAdapter extends FirebaseRecyclerAdapter<SessionalMark
             sub3Marks=itemView.findViewById(R.id.sub3Marks);
             sub4Marks=itemView.findViewById(R.id.sub4Marks);
             sub5Marks=itemView.findViewById(R.id.sub5Marks);
+            maxMarks1=itemView.findViewById(R.id.sessionalMaxMarks1);
+            maxMarks2=itemView.findViewById(R.id.sessionalMaxMarks2);
+            maxMarks3=itemView.findViewById(R.id.sessionalMaxMarks3);
+            maxMarks4=itemView.findViewById(R.id.sessionalMaxMarks4);
+            maxMarks5=itemView.findViewById(R.id.sessionalMaxMarks5);
             studentRollNumberSessional=itemView.findViewById(R.id.studentRollNumberSessional);
-
+            studentNameSessional=itemView.findViewById(R.id.studentNameSessional);
 
         }
     }

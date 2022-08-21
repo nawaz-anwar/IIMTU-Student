@@ -37,7 +37,7 @@ public class QueriesActivity extends AppCompatActivity {
     ActivityQueriesBinding binding;
     DatabaseReference reference;
     DatabaseReference dbnameref, dbrollref, dbfacultyref, dbfacultyuid;
-    String studentName, studentRollNumber, facultyName;
+    String studentName, studentRollNumber, facultyName, studentImage, queriesStudentRollNumber;
     FirebaseAuth auth;
     FirebaseUser currentUser;
     RecyclerView recviewQueries;
@@ -192,7 +192,8 @@ public class QueriesActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.exists()){
 
-                    String queriesStudentRollNumber = snapshot.child("studentRollNumber").getValue().toString();
+                    queriesStudentRollNumber = snapshot.child("studentRollNumber").getValue().toString();
+                    studentImage = snapshot.child("studentImage").getValue().toString();
 
                     LinearLayoutManager linearLayoutManager = new LinearLayoutManager(QueriesActivity.this);
                     recviewQueries=(RecyclerView)findViewById(R.id.rcQueries);
@@ -219,7 +220,7 @@ public class QueriesActivity extends AppCompatActivity {
     private void sendlink() {
 
         String queriesTitle = binding.queriesTitle.getEditText().getText().toString();
-        Queries queries = new Queries(studentName, studentRollNumber, facultyName, queriesTitle);
+        Queries queries = new Queries(studentName, studentRollNumber, facultyName, queriesTitle, studentImage);
 
         reference.child(facultyName).push().setValue(queries).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override

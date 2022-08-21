@@ -9,8 +9,8 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/bgsinglerow"
+        android:layout_height="120dp"
+        android:background="@drawable/singlerow"
         android:padding="16dp">
 
 
@@ -32,14 +32,14 @@
             android:layout_toRightOf="@id/imgNotes"
             android:gravity="center_vertical"
             android:text="This is Header Text"
-            android:textColor="#fff"
+            android:textColor="#171515"
             android:textSize="23dp"
             android:textStyle="bold" />
 
         <ImageView
             android:id="@+id/notesDownload"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:layout_alignEnd="@+id/notesTitle"
             android:layout_alignBottom="@+id/imgNotes"
             android:layout_marginEnd="0dp"
