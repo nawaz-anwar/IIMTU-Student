@@ -15,8 +15,7 @@
         android:theme="@style/Theme.IIMTUStudent">
         <activity
             android:name=".FacultyDeatilsActivity"
-            android:exported="false"
-            android:theme="@style/Theme.IIMTUStudentNoAction" />
+            android:exported="false" />
         <activity
             android:name=".SelectSubjectAttendance"
             android:exported="false" />

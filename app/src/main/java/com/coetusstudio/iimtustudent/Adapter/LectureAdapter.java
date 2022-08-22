@@ -43,44 +43,16 @@ public class LectureAdapter extends FirebaseRecyclerAdapter<Lecture,LectureAdapt
         holder.lectureLink.setText(Lecture.getLectureLink());
         holder.lectureDate.setText(Lecture.getLectureDate());
         holder.lectureTime.setText(Lecture.getLectureTime());
+        String uriLink = Lecture.getLectureLink();
 
         holder.btnLectureJoin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(holder.btnLectureJoin.getContext(), ViewpdfActivity.class);
-                intent.putExtra("link",Lecture.getLectureLink());
 
+                Uri uri = Uri.parse(uriLink);
+                Intent lectureLink = new Intent(Intent.ACTION_VIEW, uri);
+                holder.lectureName.getContext().startActivity(lectureLink);
 
-                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                holder.btnLectureJoin.getContext().startActivity(intent);
-
-            }
-        });
-
-        holder.lectureDelete.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                AlertDialog.Builder builder=new AlertDialog.Builder(holder.lectureName.getContext());
-                builder.setTitle("Warning");
-                builder.setMessage("Are you sure want to delete...?");
-
-                builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        FirebaseDatabase.getInstance().getReference().child("Lecture").child(getRef(position).getKey())
-                                .removeValue();
-                    }
-                });
-
-                builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-
-                    }
-                });
-
-                builder.show();
             }
         });
 
@@ -109,7 +81,7 @@ public class LectureAdapter extends FirebaseRecyclerAdapter<Lecture,LectureAdapt
             lectureLink=itemView.findViewById(R.id.lectureLink);
             lectureDate=itemView.findViewById(R.id.lectureDate);
             lectureTime=itemView.findViewById(R.id.lectureTime);
-            lectureDelete=itemView.findViewById(R.id.lectureDelete);
+            //lectureDelete=itemView.findViewById(R.id.lectureDelete);
             btnLectureJoin=itemView.findViewById(R.id.btnLectureJoin);
 
         }

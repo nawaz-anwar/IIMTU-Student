@@ -11,7 +11,7 @@
         <entry key="..\:/App data/IIMTUStudent/app/src/main/res/drawable/spinnerbg.xml" value="0.20052083333333334" />
         <entry key="..\:/App data/IIMTUStudent/app/src/main/res/layout/activity_attendance.xml" value="0.22" />
         <entry key="..\:/App data/IIMTUStudent/app/src/main/res/layout/activity_chat.xml" value="0.184375" />
-        <entry key="..\:/App data/IIMTUStudent/app/src/main/res/layout/activity_faculty_deatils.xml" value="0.184375" />
+        <entry key="..\:/App data/IIMTUStudent/app/src/main/res/layout/activity_faculty_deatils.xml" value="0.22" />
         <entry key="..\:/App data/IIMTUStudent/app/src/main/res/layout/activity_image_view.xml" value="0.184375" />
         <entry key="..\:/App data/IIMTUStudent/app/src/main/res/layout/activity_lecture.xml" value="0.22" />
         <entry key="..\:/App data/IIMTUStudent/app/src/main/res/layout/activity_login.xml" value="0.22" />
@@ -30,7 +30,7 @@
         <entry key="..\:/App data/IIMTUStudent/app/src/main/res/layout/content_main.xml" value="0.1787037037037037" />
         <entry key="..\:/App data/IIMTUStudent/app/src/main/res/layout/nav_header_main.xml" value="0.3333333333333333" />
         <entry key="..\:/App data/IIMTUStudent/app/src/main/res/layout/singlerowfaculty.xml" value="0.184375" />
-        <entry key="..\:/App data/IIMTUStudent/app/src/main/res/layout/singlerowlecture.xml" value="0.3333333333333333" />
+        <entry key="..\:/App data/IIMTUStudent/app/src/main/res/layout/singlerowlecture.xml" value="0.4466666666666667" />
         <entry key="..\:/App data/IIMTUStudent/app/src/main/res/layout/singlerownotes.xml" value="0.22" />
         <entry key="..\:/App data/IIMTUStudent/app/src/main/res/layout/singlerownotice.xml" value="0.22" />
         <entry key="..\:/App data/IIMTUStudent/app/src/main/res/layout/singlerowqueries.xml" value="0.3333333333333333" />

@@ -30,6 +30,7 @@ import com.google.firebase.storage.StorageReference;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 
 public class NotesAdapter extends FirebaseRecyclerAdapter<Notes,NotesAdapter.myviewholder>{
 
@@ -55,12 +56,23 @@ public class NotesAdapter extends FirebaseRecyclerAdapter<Notes,NotesAdapter.myv
             }
         });
 
+        holder.header.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(holder.header.getContext(), ViewpdfActivity.class);
+                intent.putExtra("filename",Notes.getFilename());
+                intent.putExtra("fileurl",Notes.getFileurl());
+
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                holder.header.getContext().startActivity(intent);
+            }
+        });
+
         holder.notesDownload.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 StorageReference storageRef = FirebaseStorage.getInstance().getReference().child("Notes").child("fileurl");
                 //StorageReference islandRef = storageRef.child("images/island.jpg");
-
 
                 storageRef.getBytes(Long.MAX_VALUE).addOnSuccessListener(new OnSuccessListener<byte[]>() {
                     @Override
@@ -73,7 +85,6 @@ public class NotesAdapter extends FirebaseRecyclerAdapter<Notes,NotesAdapter.myv
                         // Handle any errors
                     }
                 });
-
 
 
 

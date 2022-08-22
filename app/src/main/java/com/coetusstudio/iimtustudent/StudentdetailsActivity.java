@@ -30,6 +30,7 @@ public class StudentdetailsActivity extends AppCompatActivity {
         binding = ActivityStudentdetailsBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+
         binding.btnStudentBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -51,7 +52,6 @@ public class StudentdetailsActivity extends AppCompatActivity {
                 binding.studentRollNumber.setText(studentDetails.getStudentRollNumber());
                 binding.studentAdmissionNumber.setText(studentDetails.getStudentAdmissionNumber());
                 binding.studentEnroolmentNumber.setText(studentDetails.getStudentEnrollmentNumber());
-                binding.studentRollNumber.setText(studentDetails.getStudentRollNumber());
                 binding.studentGrade.setText(studentDetails.getStudentGrade());
                 binding.studentBranch.setText(studentDetails.getStudentBranch());
                 binding.studentSemester.setText(studentDetails.getStudentSemester());
