@@ -8,13 +8,31 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="7dp"
+        >
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/notificationFacultyImage"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginLeft="3dp"
+            android:background="@drawable/manimg"
+            app:civ_border_color="#FF000000"
+            app:civ_border_width="3dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
+        android:layout_marginTop="7dp"
         android:padding="10dp">
 
         <View
             android:layout_width="wrap_content"
             android:layout_height="5dp"
-            android:background="@drawable/side_nav_bar"/>
+            android:background="@drawable/round_button" />
 
         <TextView
             android:id="@+id/notificationTitle"
@@ -25,16 +43,11 @@
             android:textSize="22sp"
             android:textStyle="bold" />
 
-        <ImageView
-            android:id="@+id/notificationImage"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            tools:srcCompat="@drawable/notification" />
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-
+            android:layout_marginTop="7dp"
+            android:layout_marginBottom="7dp"
             android:orientation="horizontal">
 
 
@@ -45,8 +58,8 @@
                 android:layout_weight="7"
                 android:text="TextView"
                 android:textColor="#000000"
-                android:textStyle="bold"
-                android:textSize="16sp" />
+                android:textSize="16sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/notificationTime"
@@ -54,19 +67,19 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="TextView"
-                android:textColor="#000000"
-                android:textStyle="bold"
-                android:textSize="16sp" />
+                android:textColor="#0329FF"
+                android:textSize="16sp"
+                android:textStyle="bold" />
 
         </LinearLayout>
 
         <View
             android:layout_width="wrap_content"
-            android:layout_height="10dp"
-            android:background="@drawable/side_nav_bar"/>
+            android:layout_height="6dp"
+            android:background="@drawable/round_button" />
 
     </LinearLayout>
 
-
+    </LinearLayout>
 
 </androidx.cardview.widget.CardView>

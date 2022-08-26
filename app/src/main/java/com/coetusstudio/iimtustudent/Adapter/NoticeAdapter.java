@@ -20,6 +20,8 @@ import com.coetusstudio.iimtustudent.ViewpdfActivity;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 public class NoticeAdapter extends FirebaseRecyclerAdapter<NoticeData,NoticeAdapter.myviewholder> {
 
 
@@ -36,18 +38,21 @@ public class NoticeAdapter extends FirebaseRecyclerAdapter<NoticeData,NoticeAdap
         holder.notificationTitle.setText(NoticeData.getTitle());
         holder.notificationDate.setText(NoticeData.getDate());
         holder.notificationTime.setText(NoticeData.getTime());
-        Glide.with(holder.notificationImage.getContext()).load(NoticeData.getImage())
+        Glide.with(holder.notificationFacultyImage.getContext()).load(NoticeData.getFacultyImage())
                 .placeholder(R.drawable.manimg)
+                .circleCrop()
                 .error(R.drawable.manimg)
-                .into(holder.notificationImage);
+                .into(holder.notificationFacultyImage);
 
 
-        holder.notificationImage.setOnClickListener(new View.OnClickListener() {
+        holder.notificationTitle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent=new Intent(holder.notificationTitle.getContext(), ImageViewActivity.class);
                 intent.putExtra("title",NoticeData.getTitle());
                 intent.putExtra("imageurl",NoticeData.getImage());
+                intent.putExtra("date",NoticeData.getDate());
+                intent.putExtra("time",NoticeData.getTime());
 
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 holder.notificationTitle.getContext().startActivity(intent);
@@ -71,14 +76,14 @@ public class NoticeAdapter extends FirebaseRecyclerAdapter<NoticeData,NoticeAdap
     class myviewholder extends RecyclerView.ViewHolder
     {
         TextView notificationTitle, notificationDate, notificationTime;
-        ImageView notificationImage;
+        CircleImageView notificationFacultyImage;
         public myviewholder(@NonNull View itemView)
         {
             super(itemView);
             notificationTitle=itemView.findViewById(R.id.notificationTitle);
-            notificationImage=itemView.findViewById(R.id.notificationImage);
             notificationDate=itemView.findViewById(R.id.notificationDate);
             notificationTime=itemView.findViewById(R.id.notificationTime);
+            notificationFacultyImage=itemView.findViewById(R.id.notificationFacultyImage);
 
         }
     }

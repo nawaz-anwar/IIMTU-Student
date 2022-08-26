@@ -1,5 +1,7 @@
 package com.coetusstudio.iimtustudent.Adapter;
 
+import static android.os.Environment.DIRECTORY_DOWNLOADS;
+
 import android.app.AlertDialog;
 import android.app.DownloadManager;
 import android.content.Context;
@@ -17,6 +19,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.coetusstudio.iimtustudent.Model.Notes;
+import com.coetusstudio.iimtustudent.NotesActivity;
 import com.coetusstudio.iimtustudent.R;
 import com.coetusstudio.iimtustudent.ViewpdfActivity;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
@@ -71,26 +74,23 @@ public class NotesAdapter extends FirebaseRecyclerAdapter<Notes,NotesAdapter.myv
         holder.notesDownload.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                StorageReference storageRef = FirebaseStorage.getInstance().getReference().child("Notes").child("fileurl");
-                //StorageReference islandRef = storageRef.child("images/island.jpg");
-
-                storageRef.getBytes(Long.MAX_VALUE).addOnSuccessListener(new OnSuccessListener<byte[]>() {
-                    @Override
-                    public void onSuccess(byte[] bytes) {
-                        // Use the bytes to display the image
-                    }
-                }).addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception exception) {
-                        // Handle any errors
-                    }
-                });
-
-
-
+                downloadFile(holder.header.getContext(),Notes.getFilename(),".pdf",DIRECTORY_DOWNLOADS,Notes.getFileurl());
             }
         });
 
+    }
+
+    public void downloadFile(Context context, String fileName, String fileExtension, String destinationDirectory, String url) {
+
+        DownloadManager downloadmanager = (DownloadManager) context.
+                getSystemService(Context.DOWNLOAD_SERVICE);
+        Uri uri = Uri.parse(url);
+        DownloadManager.Request request = new DownloadManager.Request(uri);
+
+        request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
+        request.setDestinationInExternalFilesDir(context, destinationDirectory, fileName + fileExtension);
+
+        downloadmanager.enqueue(request);
     }
 
     @NonNull
@@ -114,4 +114,5 @@ public class NotesAdapter extends FirebaseRecyclerAdapter<Notes,NotesAdapter.myv
 
         }
     }
+
 }

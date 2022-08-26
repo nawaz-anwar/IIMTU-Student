@@ -1,14 +1,16 @@
 package com.coetusstudio.iimtustudent.Model;
 
 public class Lecture {
-    String lectureName, lectureTiming, lectureLink, lectureDate, lectureTime;
 
-    public Lecture(String lectureName, String lectureTiming, String lectureLink, String lectureDate, String lectureTime) {
+    String lectureName, lectureTiming, lectureLink, lectureDate, lectureTime, facultyImage;
+
+    public Lecture(String lectureName, String lectureTiming, String lectureLink, String lectureDate, String lectureTime, String facultyImage) {
         this.lectureName = lectureName;
         this.lectureTiming = lectureTiming;
         this.lectureLink = lectureLink;
         this.lectureDate = lectureDate;
         this.lectureTime = lectureTime;
+        this.facultyImage = facultyImage;
     }
 
     public Lecture() {
@@ -52,5 +54,13 @@ public class Lecture {
 
     public void setLectureTime(String lectureTime) {
         this.lectureTime = lectureTime;
+    }
+
+    public String getFacultyImage() {
+        return facultyImage;
+    }
+
+    public void setFacultyImage(String facultyImage) {
+        this.facultyImage = facultyImage;
     }
 }

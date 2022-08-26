@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.coetusstudio.iimtustudent.Adapter.NoticeAdapter;
@@ -47,5 +48,12 @@ public class NotificationActivity extends AppCompatActivity {
     protected void onStop() {
         super.onStop();
         noticeAdapter.stopListening();
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(NotificationActivity.this, MainActivity.class);
+        startActivity(intent);
+        finish();
     }
 }
