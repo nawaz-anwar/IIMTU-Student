@@ -9,8 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="7dp"
-        >
+        android:layout_marginTop="7dp">
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/notificationFacultyImage"
@@ -58,7 +57,7 @@
                 android:layout_weight="7"
                 android:text="TextView"
                 android:textColor="#000000"
-                android:textSize="16sp"
+                android:textSize="14sp"
                 android:textStyle="bold" />
 
             <TextView
@@ -68,7 +67,7 @@
                 android:layout_weight="1"
                 android:text="TextView"
                 android:textColor="#0329FF"
-                android:textSize="16sp"
+                android:textSize="14sp"
                 android:textStyle="bold" />
 
         </LinearLayout>

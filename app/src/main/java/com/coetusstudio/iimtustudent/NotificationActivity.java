@@ -31,7 +31,7 @@ public class NotificationActivity extends AppCompatActivity {
 
         FirebaseRecyclerOptions<NoticeData> options =
                 new FirebaseRecyclerOptions.Builder<NoticeData>()
-                        .setQuery(FirebaseDatabase.getInstance().getReference().child("Notice"), NoticeData.class)
+                        .setQuery(FirebaseDatabase.getInstance().getReference().child("Notice").child("All Faculty And Students"), NoticeData.class)
                         .build();
 
         noticeAdapter=new NoticeAdapter(options);
