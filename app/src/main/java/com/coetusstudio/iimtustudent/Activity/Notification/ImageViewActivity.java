@@ -1,4 +1,4 @@
-package com.coetusstudio.iimtustudent;
+package com.coetusstudio.iimtustudent.Activity.Notification;
 
 import static android.os.Environment.DIRECTORY_DOWNLOADS;
 
@@ -10,11 +10,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.view.MotionEvent;
-import android.view.ScaleGestureDetector;
 import android.view.View;
 
 import com.bumptech.glide.Glide;
+import com.coetusstudio.iimtustudent.R;
 import com.coetusstudio.iimtustudent.databinding.ActivityImageViewBinding;
 
 public class ImageViewActivity extends AppCompatActivity {

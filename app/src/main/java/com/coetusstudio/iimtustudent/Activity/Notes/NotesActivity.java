@@ -1,4 +1,4 @@
-package com.coetusstudio.iimtustudent;
+package com.coetusstudio.iimtustudent.Activity.Notes;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -10,46 +10,53 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.SearchView;
 
-import com.coetusstudio.iimtustudent.Adapter.LectureAdapter;
-import com.coetusstudio.iimtustudent.Model.Lecture;
+import com.coetusstudio.iimtustudent.Activity.Home.MainActivity;
+import com.coetusstudio.iimtustudent.Adapter.NotesAdapter;
+import com.coetusstudio.iimtustudent.Model.Notes;
+import com.coetusstudio.iimtustudent.R;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.FirebaseDatabase;
+import com.mancj.materialsearchbar.MaterialSearchBar;
 
-public class LectureActivity extends AppCompatActivity {
+public class NotesActivity extends AppCompatActivity {
 
-    RecyclerView recviewLecture;
-    LectureAdapter lectureAdapter;
+
+    RecyclerView recviewNotes;
+    NotesAdapter notesAdapter;
+    MaterialSearchBar search;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_lecture);
+        setContentView(R.layout.activity_notes);
 
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(LectureActivity.this);
-        recviewLecture=(RecyclerView)findViewById(R.id.rcLecture);
-        recviewLecture.setLayoutManager(linearLayoutManager);
+
+
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(NotesActivity.this);
+        recviewNotes=(RecyclerView)findViewById(R.id.rcNotes);
+        recviewNotes.setLayoutManager(linearLayoutManager);
         linearLayoutManager.setReverseLayout(true);
         linearLayoutManager.setStackFromEnd(true);
 
-        FirebaseRecyclerOptions<Lecture> options =
-                new FirebaseRecyclerOptions.Builder<Lecture>()
-                        .setQuery(FirebaseDatabase.getInstance().getReference().child("Lecture"), Lecture.class)
+        FirebaseRecyclerOptions<Notes> options =
+                new FirebaseRecyclerOptions.Builder<Notes>()
+                        .setQuery(FirebaseDatabase.getInstance().getReference().child("Notes"), Notes.class)
                         .build();
 
-        lectureAdapter=new LectureAdapter(options);
-        recviewLecture.setAdapter(lectureAdapter);
+        notesAdapter=new NotesAdapter(options);
+        recviewNotes.setAdapter(notesAdapter);
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-        lectureAdapter.startListening();
+        notesAdapter.startListening();
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-        lectureAdapter.stopListening();
+        notesAdapter.stopListening();
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu)
@@ -81,20 +88,19 @@ public class LectureActivity extends AppCompatActivity {
 
     private void processsearch(String s)
     {
-        FirebaseRecyclerOptions<Lecture> options =
-                new FirebaseRecyclerOptions.Builder<Lecture>()
-                        .setQuery(FirebaseDatabase.getInstance().getReference().child("Lecture").orderByChild("lectureName").startAt(s).endAt(s+"\uf8ff"), Lecture.class)
+        FirebaseRecyclerOptions<Notes> options =
+                new FirebaseRecyclerOptions.Builder<Notes>()
+                        .setQuery(FirebaseDatabase.getInstance().getReference().child("Notes").orderByChild("filename").startAt(s).endAt(s+"\uf8ff"), Notes.class)
                         .build();
 
-        lectureAdapter=new LectureAdapter(options);
-        lectureAdapter.startListening();
-        recviewLecture.setAdapter(lectureAdapter);
+        notesAdapter=new NotesAdapter(options);
+        notesAdapter.startListening();
+        recviewNotes.setAdapter(notesAdapter);
 
     }
-
     @Override
     public void onBackPressed() {
-        Intent intent = new Intent(LectureActivity.this, MainActivity.class);
+        Intent intent = new Intent(NotesActivity.this, MainActivity.class);
         startActivity(intent);
         finish();
     }

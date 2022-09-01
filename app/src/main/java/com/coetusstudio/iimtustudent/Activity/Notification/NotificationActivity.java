@@ -1,4 +1,4 @@
-package com.coetusstudio.iimtustudent;
+package com.coetusstudio.iimtustudent.Activity.Notification;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -7,8 +7,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.coetusstudio.iimtustudent.Activity.Home.MainActivity;
 import com.coetusstudio.iimtustudent.Adapter.NoticeAdapter;
 import com.coetusstudio.iimtustudent.Model.NoticeData;
+import com.coetusstudio.iimtustudent.R;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.FirebaseDatabase;
 

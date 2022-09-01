@@ -5,18 +5,15 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.coetusstudio.iimtustudent.ImageViewActivity;
-import com.coetusstudio.iimtustudent.Model.Notes;
+import com.coetusstudio.iimtustudent.Activity.Notification.ImageViewActivity;
 import com.coetusstudio.iimtustudent.Model.NoticeData;
 import com.coetusstudio.iimtustudent.R;
-import com.coetusstudio.iimtustudent.ViewpdfActivity;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 

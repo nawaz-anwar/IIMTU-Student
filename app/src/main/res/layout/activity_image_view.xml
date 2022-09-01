@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="7dp"
-    tools:context=".ImageViewActivity">
+    tools:context=".Activity.Notification.ImageViewActivity">
 
 
     <LinearLayout

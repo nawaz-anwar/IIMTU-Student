@@ -2,10 +2,8 @@ package com.coetusstudio.iimtustudent.Adapter;
 
 import static android.os.Environment.DIRECTORY_DOWNLOADS;
 
-import android.app.AlertDialog;
 import android.app.DownloadManager;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.view.LayoutInflater;
@@ -13,27 +11,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.coetusstudio.iimtustudent.Model.Notes;
-import com.coetusstudio.iimtustudent.NotesActivity;
 import com.coetusstudio.iimtustudent.R;
-import com.coetusstudio.iimtustudent.ViewpdfActivity;
+import com.coetusstudio.iimtustudent.Activity.Notes.ViewpdfActivity;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.storage.FileDownloadTask;
-import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.StorageReference;
-
-import java.io.File;
-import java.io.IOException;
-import java.util.List;
 
 public class NotesAdapter extends FirebaseRecyclerAdapter<Notes,NotesAdapter.myviewholder>{
 

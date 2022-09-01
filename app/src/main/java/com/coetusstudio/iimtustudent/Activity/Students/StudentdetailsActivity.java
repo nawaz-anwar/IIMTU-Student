@@ -1,4 +1,4 @@
-package com.coetusstudio.iimtustudent;
+package com.coetusstudio.iimtustudent.Activity.Students;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,6 +9,7 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.coetusstudio.iimtustudent.Model.StudentDetails;
+import com.coetusstudio.iimtustudent.R;
 import com.coetusstudio.iimtustudent.databinding.ActivityStudentdetailsBinding;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;

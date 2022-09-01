@@ -8,52 +8,52 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/iimtulogo"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/iimtulogo"
         android:supportsRtl="true"
         android:theme="@style/Theme.IIMTUStudent">
         <activity
-            android:name=".FacultyDeatilsActivity"
+            android:name=".Activity.Faculty.FacultyDeatilsActivity"
             android:exported="false" />
         <activity
-            android:name=".SelectSubjectAttendance"
+            android:name=".Activity.Attendance.SelectSubjectAttendance"
             android:exported="false" />
         <activity
-            android:name=".ImageViewActivity"
+            android:name=".Activity.Notification.ImageViewActivity"
             android:exported="false" />
         <activity
-            android:name=".Sessional_Assignment_Marks"
+            android:name=".Activity.Marks.Sessional_Assignment_Marks"
             android:exported="false" />
         <activity
-            android:name=".ViewpdfActivity"
+            android:name=".Activity.Notes.ViewpdfActivity"
             android:exported="false" />
         <activity
-            android:name=".QueriesActivity"
+            android:name=".Activity.Queries.QueriesActivity"
             android:exported="false" />
         <activity
-            android:name=".NotificationActivity"
+            android:name=".Activity.Notification.NotificationActivity"
             android:exported="false" />
         <activity
-            android:name=".LectureActivity"
+            android:name=".Activity.Lecture.LectureActivity"
             android:exported="true"
             android:theme="@style/Theme.IIMTUStudentNoAction" />
         <activity
-            android:name=".StudentdetailsActivity"
+            android:name=".Activity.Students.StudentdetailsActivity"
             android:exported="false" />
         <activity
-            android:name=".AttendanceActivity"
+            android:name=".Activity.Attendance.AttendanceActivity"
             android:exported="false" />
         <activity
-            android:name=".NotesActivity"
+            android:name=".Activity.Notes.NotesActivity"
             android:exported="true"
             android:theme="@style/Theme.IIMTUStudentNoAction" />
         <activity
-            android:name=".MainActivity"
+            android:name=".Activity.Home.MainActivity"
             android:exported="true"
             android:theme="@style/Theme.IIMTUStudent.NoActionBar" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".Activity.Home.LoginActivity"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.IIMTUStudent.NoActionBar">

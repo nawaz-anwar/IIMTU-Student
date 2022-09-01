@@ -1,4 +1,4 @@
-package com.coetusstudio.iimtustudent;
+package com.coetusstudio.iimtustudent.Activity.Notes;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,6 +8,8 @@ import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+
+import com.coetusstudio.iimtustudent.R;
 
 import java.net.URLEncoder;
 
@@ -28,7 +30,7 @@ public class ViewpdfActivity extends AppCompatActivity {
         String fileurl=getIntent().getStringExtra("fileurl");
 
         if (filename.isEmpty()){
-            Intent intent = new Intent(ViewpdfActivity.this,NotesActivity.class);
+            Intent intent = new Intent(ViewpdfActivity.this, NotesActivity.class);
             startActivity(intent);
         }
 

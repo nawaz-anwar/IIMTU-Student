@@ -1,4 +1,4 @@
-package com.coetusstudio.iimtustudent;
+package com.coetusstudio.iimtustudent.Activity.Marks;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -8,10 +8,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
 import android.util.Log;
 
-import com.coetusstudio.iimtustudent.Adapter.LectureAdapter;
 import com.coetusstudio.iimtustudent.Adapter.SessionalMarksAdapter;
-import com.coetusstudio.iimtustudent.Model.Lecture;
 import com.coetusstudio.iimtustudent.Model.SessionalMarks;
+import com.coetusstudio.iimtustudent.R;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;

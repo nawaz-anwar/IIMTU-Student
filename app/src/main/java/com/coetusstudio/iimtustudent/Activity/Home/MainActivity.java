@@ -1,19 +1,25 @@
-package com.coetusstudio.iimtustudent;
+package com.coetusstudio.iimtustudent.Activity.Home;
 
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.Menu;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
-import com.coetusstudio.iimtustudent.Model.StudentDetails;
+import com.coetusstudio.iimtustudent.Activity.Attendance.SelectSubjectAttendance;
+import com.coetusstudio.iimtustudent.Activity.Faculty.FacultyDeatilsActivity;
+import com.coetusstudio.iimtustudent.Activity.Lecture.LectureActivity;
+import com.coetusstudio.iimtustudent.Activity.Students.StudentdetailsActivity;
+import com.coetusstudio.iimtustudent.Activity.Notes.NotesActivity;
+import com.coetusstudio.iimtustudent.Activity.Notification.NotificationActivity;
+import com.coetusstudio.iimtustudent.Activity.Queries.QueriesActivity;
+import com.coetusstudio.iimtustudent.R;
+import com.coetusstudio.iimtustudent.Activity.Marks.Sessional_Assignment_Marks;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 
 import androidx.annotation.NonNull;
@@ -21,23 +27,17 @@ import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.widget.Toolbar;
 import androidx.cardview.widget.CardView;
 import androidx.core.view.GravityCompat;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.coetusstudio.iimtustudent.databinding.ActivityMainBinding;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.crashlytics.buildtools.reloc.org.apache.http.protocol.HTTP;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.google.firebase.storage.FirebaseStorage;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -170,7 +170,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(intent1);
                 break;
             case R.id.marks:
-                Intent intent2 = new Intent(MainActivity.this,Sessional_Assignment_Marks.class);
+                Intent intent2 = new Intent(MainActivity.this, Sessional_Assignment_Marks.class);
                 startActivity(intent2);
                 break;
             case R.id.lecture:

@@ -1,4 +1,4 @@
-package com.coetusstudio.iimtustudent;
+package com.coetusstudio.iimtustudent.Activity.Queries;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,7 +15,7 @@ import android.widget.Toast;
 import com.coetusstudio.iimtustudent.Adapter.QueriesAdapter;
 import com.coetusstudio.iimtustudent.Model.AddFaculty;
 import com.coetusstudio.iimtustudent.Model.Queries;
-import com.coetusstudio.iimtustudent.Model.StudentDetails;
+import com.coetusstudio.iimtustudent.R;
 import com.coetusstudio.iimtustudent.databinding.ActivityQueriesBinding;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -29,7 +29,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 public class QueriesActivity extends AppCompatActivity {

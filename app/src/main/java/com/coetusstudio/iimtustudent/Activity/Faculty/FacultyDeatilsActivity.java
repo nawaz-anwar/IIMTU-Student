@@ -1,4 +1,4 @@
-package com.coetusstudio.iimtustudent;
+package com.coetusstudio.iimtustudent.Activity.Faculty;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -11,6 +11,7 @@ import android.widget.SearchView;
 
 import com.coetusstudio.iimtustudent.Adapter.FacultyAdapter;
 import com.coetusstudio.iimtustudent.Model.AddFaculty;
+import com.coetusstudio.iimtustudent.R;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.FirebaseDatabase;
 

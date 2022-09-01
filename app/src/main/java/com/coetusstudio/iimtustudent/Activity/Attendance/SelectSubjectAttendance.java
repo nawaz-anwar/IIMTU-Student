@@ -1,4 +1,4 @@
-package com.coetusstudio.iimtustudent;
+package com.coetusstudio.iimtustudent.Activity.Attendance;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -8,7 +8,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Toast;
 
 import com.coetusstudio.iimtustudent.Model.AddFaculty;
 import com.coetusstudio.iimtustudent.databinding.ActivitySelectSubjectAttendanceBinding;
@@ -20,7 +19,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 public class SelectSubjectAttendance extends AppCompatActivity {
@@ -97,7 +95,7 @@ public class SelectSubjectAttendance extends AppCompatActivity {
         binding.proceedBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(SelectSubjectAttendance.this,AttendanceActivity.class);
+                Intent intent = new Intent(SelectSubjectAttendance.this, AttendanceActivity.class);
                 intent.putExtra("subjectName",item_subject);
                 intent.putExtra("studentSection",studentSection);
                 intent.putExtra("studentRollNumber",studentRollNumber);
