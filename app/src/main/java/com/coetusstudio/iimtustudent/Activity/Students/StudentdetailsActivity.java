@@ -1,5 +1,7 @@
 package com.coetusstudio.iimtustudent.Activity.Students;
 
+import static android.view.View.INVISIBLE;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -56,10 +58,17 @@ public class StudentdetailsActivity extends AppCompatActivity {
                 binding.studentBranch.setText(studentDetails.getStudentBranch());
                 binding.studentSemester.setText(studentDetails.getStudentSemester());
                 binding.studentSection.setText(studentDetails.getStudentSection());
-                //binding.studentAttendance.setText(studentDetails.getStudentAttendance());
+                String password = studentDetails.getStudentPassword();
                 String url = snapshot.child("studentImage").getValue().toString();
                 Glide.with(getApplicationContext()).load(url).error(R.drawable.manimg).into(binding.studentImage);
 
+                binding.studentPasswordVisibility.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        binding.studentPassword.setText(password);
+                        binding.studentPasswordVisibility.setVisibility(INVISIBLE);
+                    }
+                });
 
             }
 

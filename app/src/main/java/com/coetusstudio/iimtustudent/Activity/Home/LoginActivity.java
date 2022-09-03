@@ -39,9 +39,8 @@ public class LoginActivity extends AppCompatActivity {
         binding.forqetPassword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Uri webpage = Uri.parse("https://mail.google.com/");
-                Intent webEmail = new Intent(Intent.ACTION_VIEW, webpage);
-                startActivity(webEmail);
+                startActivity(new Intent(getApplicationContext(),ForgetPasswordActivity.class));
+                finish();
             }
         });
 

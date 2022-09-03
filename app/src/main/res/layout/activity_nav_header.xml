@@ -3,11 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="260dp"
+    android:layout_height="280dp"
     android:gravity="bottom"
     android:orientation="vertical"
-    android:padding="14dp"
-    android:background="#9E7129F4">
+    android:padding="20dp"
+    android:background="@drawable/headerbg">
 
 
     <LinearLayout
@@ -16,10 +16,10 @@
         android:orientation="horizontal">
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/studentImageProfile"
-            android:layout_width="120dp"
-            android:layout_height="120dp"
+            android:layout_width="135dp"
+            android:layout_height="130dp"
             app:civ_border_color="#FF000000"
-            app:civ_border_width="3dp"
+            app:civ_border_width="1.5dp"
             android:src="@drawable/manimg" />
 
     </LinearLayout>
@@ -28,19 +28,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Name:"
-            android:textSize="16sp"
-            android:layout_marginTop="3dp"
-            android:textColor="#fff"/>
 
         <TextView
             android:id="@+id/studentNameProfile"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="16sp"
+            android:textSize="18sp"
+            android:textStyle="normal"
             android:layout_marginTop="3dp"
             android:text="Student Name"
             android:layout_marginLeft="3dp"
@@ -52,13 +46,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="E-mail:"
-            android:textSize="14sp"
-            android:layout_marginTop="3dp"
-            android:textColor="#fff"/>
 
         <TextView
             android:id="@+id/studentEmailIdProfile"
@@ -76,13 +63,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Roll Number:"
-            android:textSize="14sp"
-            android:layout_marginTop="3dp"
-            android:textColor="#fff"/>
 
         <TextView
             android:id="@+id/studentRollNumberProfile"

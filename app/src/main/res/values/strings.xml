@@ -13,4 +13,5 @@
 
     <string name="attendance_alert">*If you not find any subject option Please! check your net connection or wait 10-15 seconds</string>
     <string name="queries_alert">*If you not find Name, Roll Number, Faculty Name option Please! check your net connection or wait 10-15 seconds</string>
+    <string name="password_alert">*Please! Enter correct email address so that we can send reset Password option</string>
 </resources>
