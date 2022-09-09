@@ -3,9 +3,12 @@ package com.coetusstudio.iimtustudent.Activity.Students;
 import static android.view.View.INVISIBLE;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -41,12 +44,53 @@ public class StudentdetailsActivity extends AppCompatActivity {
         });
 
         auth = FirebaseAuth.getInstance();
-        databaseReference = FirebaseDatabase.getInstance().getReference().child("IIMTU").child("Student").child(auth.getUid());
+        databaseReference = FirebaseDatabase.getInstance().getReference().child("Student Data");
 
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
 
+                for (DataSnapshot dsp : snapshot.getChildren()) {
+                    String image, name, email, rollNo, addNo, enrollNo, department, semester, section, grade, password;
+
+                    try {
+                        name = dsp.child(auth.getCurrentUser().getUid()).child("studentName").getValue(String.class);
+                        binding.studentName.setText(name.toString());
+                        email = dsp.child(auth.getCurrentUser().getUid()).child("studentEmail").getValue(String.class).toString();
+                        binding.studentEmailId.setText(email);
+                        rollNo = dsp.child(auth.getCurrentUser().getUid()).child("studentRollNumber").getValue(String.class).toString();
+                        binding.studentRollNumber.setText(rollNo);
+                        addNo = dsp.child(auth.getCurrentUser().getUid()).child("studentAdmissionNumber").getValue(String.class).toString();
+                        binding.studentAdmissionNumber.setText(addNo);
+                        enrollNo = dsp.child(auth.getCurrentUser().getUid()).child("studentEnrollmentNumber").getValue(String.class).toString();
+                        binding.studentEnroolmentNumber.setText(enrollNo);
+                        department = dsp.child(auth.getCurrentUser().getUid()).child("studentBranch").getValue(String.class).toString();
+                        binding.studentBranch.setText(department);
+                        semester = dsp.child(auth.getCurrentUser().getUid()).child("studentSemester").getValue(String.class).toString();
+                        binding.studentSemester.setText(semester);
+                        section = dsp.child(auth.getCurrentUser().getUid()).child("studentSection").getValue(String.class).toString();
+                        binding.studentSection.setText(section);
+                        grade = dsp.child(auth.getCurrentUser().getUid()).child("studentGrade").getValue(String.class).toString();
+                        binding.studentGrade.setText(grade);
+                        password = dsp.child(auth.getCurrentUser().getUid()).child("studentPassword").getValue(String.class).toString();
+                        image = dsp.child(auth.getCurrentUser().getUid()).child("studentImage").getValue(String.class).toString();
+                        Glide.with(getApplicationContext()).load(image).error(R.drawable.manimg).into(binding.studentImage);
+
+                        binding.studentPasswordVisibility.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                binding.studentPassword.setText(password);
+                                binding.studentPasswordVisibility.setVisibility(INVISIBLE);
+                            }
+                        });
+                    }
+                    catch (Exception e){
+                        e.printStackTrace();
+                    }
+
+
+                }
+                /*
                 StudentDetails studentDetails = snapshot.getValue(StudentDetails.class);
 
                 binding.studentName.setText(studentDetails.getStudentName());
@@ -58,19 +102,14 @@ public class StudentdetailsActivity extends AppCompatActivity {
                 binding.studentBranch.setText(studentDetails.getStudentBranch());
                 binding.studentSemester.setText(studentDetails.getStudentSemester());
                 binding.studentSection.setText(studentDetails.getStudentSection());
-                String password = studentDetails.getStudentPassword();
-                String url = snapshot.child("studentImage").getValue().toString();
-                Glide.with(getApplicationContext()).load(url).error(R.drawable.manimg).into(binding.studentImage);
 
-                binding.studentPasswordVisibility.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        binding.studentPassword.setText(password);
-                        binding.studentPasswordVisibility.setVisibility(INVISIBLE);
-                    }
-                });
+
+
+                 */
 
             }
+
+
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {

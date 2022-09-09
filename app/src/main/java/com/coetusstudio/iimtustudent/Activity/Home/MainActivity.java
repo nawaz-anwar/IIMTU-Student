@@ -1,5 +1,7 @@
 package com.coetusstudio.iimtustudent.Activity.Home;
 
+import static android.view.View.INVISIBLE;
+
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -126,7 +128,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     Uri webpage = Uri.parse("https://www.iimtu.com/about-iimt/our-founder");
                     Intent webMeet = new Intent(Intent.ACTION_VIEW, webpage);
                     startActivity(webMeet);
-                } else if (id == R.id.logout) {
+                }else if (id == R.id.resetPassword) {
+                    startActivity(new Intent(getApplicationContext(), ForgetPasswordActivity.class));
+
+                }else if (id == R.id.logout) {
                     Intent intent = new Intent(MainActivity.this, LoginActivity.class);
                     startActivity(intent);
                     finish();
@@ -204,10 +209,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         TextView navUserRoll = headerView.findViewById(R.id.studentRollNumberProfile);
         ImageView navUserPhot = headerView.findViewById(R.id.studentImageProfile);
 
-        FirebaseDatabase.getInstance().getReference().child("IIMTU").child("Student").child(currentUser.getUid()).addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if (snapshot.exists()){
+
+                    /*
                     String userName= snapshot.child("studentName").getValue().toString();
                     navUsername.setText(userName);
                     navUserMail.setText(snapshot.child("studentEmail").getValue().toString());
@@ -215,19 +218,44 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     String url = snapshot.child("studentImage").getValue().toString();
                     Glide.with(getApplicationContext()).load(url).error(R.drawable.manimg).into(navUserPhot);
 
+                     */
+
+        FirebaseDatabase.getInstance().getReference().child("Student Data").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                for (DataSnapshot dsp : snapshot.getChildren()) {
+                    String image, name, email, rollNo;
+
+                    try {
+                        name = dsp.child(auth.getCurrentUser().getUid()).child("studentName").getValue(String.class);
+                        navUsername.setText(name);
+                        email = dsp.child(auth.getCurrentUser().getUid()).child("studentEmail").getValue(String.class).toString();
+                        navUserMail.setText(email);
+                        rollNo = dsp.child(auth.getCurrentUser().getUid()).child("studentRollNumber").getValue(String.class).toString();
+                        navUserRoll.setText(rollNo);
+
+                        image = dsp.child(auth.getCurrentUser().getUid()).child("studentImage").getValue(String.class).toString();
+                        Glide.with(getApplicationContext()).load(image).error(R.drawable.manimg).into(navUserPhot);
+
+
+                    }
+                    catch (Exception e){
+                        e.printStackTrace();
+                    }
+
 
                 }
+
             }
+
+
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-                Toast.makeText(MainActivity.this, "Something went wrong", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "Fail to get data.", Toast.LENGTH_SHORT).show();
             }
         });
-
-
-
-
-    }
+            }
 
 }

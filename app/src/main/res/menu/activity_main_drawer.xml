@@ -20,6 +20,12 @@
             android:id="@+id/aboutUs"
             android:icon="@drawable/aboutus"
             android:title="About us" />
+
+        <item
+            android:id="@+id/resetPassword"
+            android:icon="@drawable/ic_baseline_lock_person"
+            android:title="Reset Password" />
+
         <item
             android:id="@+id/logout"
             android:icon="@drawable/ic_baseline_logout"

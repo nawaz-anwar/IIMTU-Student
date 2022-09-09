@@ -46,7 +46,7 @@ public class ForgetPasswordActivity extends AppCompatActivity {
                             if (task.isSuccessful()){
                                 Toast.makeText(getApplicationContext(),"We have sent you instructions to reset your password!", Toast.LENGTH_SHORT).show();
                             }else{
-                                Toast.makeText(getApplicationContext(),"Failed to send reset email!", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getApplicationContext(),task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                             }
                         }
                     });

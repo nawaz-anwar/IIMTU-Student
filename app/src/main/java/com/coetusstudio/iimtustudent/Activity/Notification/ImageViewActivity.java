@@ -38,7 +38,7 @@ public class ImageViewActivity extends AppCompatActivity {
         binding.viewTitle.setText(fileName);
         binding.notificationDateActivity.setText(fileDate);
         binding.notificationTimeActivity.setText(fileTime);
-        Glide.with(getApplicationContext()).load(fileUrl).error(R.drawable.iimtulogo).into(binding.viewImage);
+        Glide.with(getApplicationContext()).load(fileUrl).error(R.drawable.noimage).into(binding.viewImage);
 
 
         binding.notificationDownload.setOnClickListener(new View.OnClickListener() {

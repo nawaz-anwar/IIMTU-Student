@@ -78,7 +78,7 @@
           android:layout_height="wrap_content"
           android:layout_gravity="center_horizontal"
           android:layout_weight="1"
-          android:text="                                        Request Forget Password!" />
+          android:text="                                                       Forget Password!" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <androidx.appcompat.widget.AppCompatButton
