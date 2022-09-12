@@ -1,67 +1,75 @@
 package com.coetusstudio.iimtustudent.Adapter;
-
 import android.annotation.SuppressLint;
-import android.content.Intent;
-import android.content.res.Resources;
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.coetusstudio.iimtustudent.Model.NoticeData;
 import com.coetusstudio.iimtustudent.Model.SessionalMarks;
 import com.coetusstudio.iimtustudent.R;
-import com.firebase.ui.database.FirebaseRecyclerAdapter;
-import com.firebase.ui.database.FirebaseRecyclerOptions;
 
-public class SessionalMarksAdapter extends FirebaseRecyclerAdapter<SessionalMarks,SessionalMarksAdapter.myviewholder> {
+import java.util.ArrayList;
 
+public class SessionalMarksAdapter extends RecyclerView.Adapter<SessionalMarksAdapter.myviewholder> {
 
-    public SessionalMarksAdapter(@NonNull FirebaseRecyclerOptions<SessionalMarks> options)
-    {
-        super(options);
+    Context context;
+    ArrayList<SessionalMarks> list;
+    String studentName;
+
+    public SessionalMarksAdapter(Context context, ArrayList<SessionalMarks> list, String studentName) {
+        this.context = context;
+        this.list = list;
+        this.studentName = studentName;
     }
 
-    @Override
-    protected void onBindViewHolder(@NonNull final SessionalMarksAdapter.myviewholder holder, @SuppressLint("RecyclerView") final int position, @NonNull final SessionalMarks SessionalMarks)
-    {
-
-
-        holder.marksTitle.setText(SessionalMarks.getSessionalTitle());
-        holder.sub1.setText(SessionalMarks.getSessionalSub1());
-        holder.sub2.setText(SessionalMarks.getSessionalSub2());
-        holder.sub3.setText(SessionalMarks.getSessionalSub3());
-        holder.sub4.setText(SessionalMarks.getSessionalSub4());
-        holder.sub5.setText(SessionalMarks.getSessionalSub5());
-        holder.sub1Marks.setText(SessionalMarks.getSessionalMarks1());
-        holder.sub2Marks.setText(SessionalMarks.getSessionalMarks2());
-        holder.sub3Marks.setText(SessionalMarks.getSessionalMarks3());
-        holder.sub4Marks.setText(SessionalMarks.getSessionalMarks4());
-        holder.sub5Marks.setText(SessionalMarks.getSessionalMarks5());
-        holder.maxMarks1.setText(SessionalMarks.getSessionalMaxMarks());
-        holder.maxMarks2.setText(SessionalMarks.getSessionalMaxMarks());
-        holder.maxMarks3.setText(SessionalMarks.getSessionalMaxMarks());
-        holder.maxMarks4.setText(SessionalMarks.getSessionalMaxMarks());
-        holder.maxMarks5.setText(SessionalMarks.getSessionalMaxMarks());
-        holder.studentRollNumberSessional.setText(SessionalMarks.getStudentRollNo());
-        holder.studentNameSessional.setText(SessionalMarks.getStudentName());
-
-
-    } // End of OnBindViewMethod
 
     @NonNull
     @Override
-    public SessionalMarksAdapter.myviewholder onCreateViewHolder(@NonNull ViewGroup parent, int viewType)
-    {
+    public myviewholder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.singlerowsessional,parent,false);
         return new SessionalMarksAdapter.myviewholder(view);
     }
 
+    @Override
+    public void onBindViewHolder(@NonNull myviewholder holder, @SuppressLint("RecyclerView") int position) {
+
+        SessionalMarks sessionalMarks = list.get(position);
+
+        holder.marksTitle.setText(sessionalMarks.getSessionalTitle());
+        holder.sub1.setText(sessionalMarks.getSessionalSub1());
+        holder.sub2.setText(sessionalMarks.getSessionalSub2());
+        holder.sub3.setText(sessionalMarks.getSessionalSub3());
+        holder.sub4.setText(sessionalMarks.getSessionalSub4());
+        holder.sub5.setText(sessionalMarks.getSessionalSub5());
+        holder.sub1Marks.setText(sessionalMarks.getSessionalMarks1());
+        holder.sub2Marks.setText(sessionalMarks.getSessionalMarks2());
+        holder.sub3Marks.setText(sessionalMarks.getSessionalMarks3());
+        holder.sub4Marks.setText(sessionalMarks.getSessionalMarks4());
+        holder.sub5Marks.setText(sessionalMarks.getSessionalMarks5());
+        holder.maxMarks1.setText(sessionalMarks.getSessionalMaxMarks());
+        holder.maxMarks2.setText(sessionalMarks.getSessionalMaxMarks());
+        holder.maxMarks3.setText(sessionalMarks.getSessionalMaxMarks());
+        holder.maxMarks4.setText(sessionalMarks.getSessionalMaxMarks());
+        holder.maxMarks5.setText(sessionalMarks.getSessionalMaxMarks());
+        holder.studentRollNumberSessional.setText(sessionalMarks.getStudentRollNo());
+        holder.studentNameSessional.setText(studentName);
+
+    }
+
+    @Override
+    public int getItemCount() {
+        return list.size();
+    }
 
     class myviewholder extends RecyclerView.ViewHolder
     {
@@ -90,6 +98,5 @@ public class SessionalMarksAdapter extends FirebaseRecyclerAdapter<SessionalMark
 
         }
     }
-
 
 }

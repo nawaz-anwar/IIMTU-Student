@@ -3,9 +3,10 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:cardCornerRadius="7dp"
-    android:elevation="5dp"
-    android:padding="3dp"
+    app:cardCornerRadius="10dp"
+    android:elevation="10dp"
+    android:padding="7dp"
+    android:layout_marginBottom="3dp"
     app:cardUseCompatPadding="true">
 
     <de.hdodenhof.circleimageview.CircleImageView
@@ -16,7 +17,7 @@
         android:layout_marginLeft="3dp"
         android:background="@drawable/manimg"
         app:civ_border_color="#FF000000"
-        app:civ_border_width="3dp" />
+        app:civ_border_width="1dp" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -29,6 +30,7 @@
             android:text="Lecture Timing"
             android:textColor="#000000"
             android:textSize="12sp"
+            android:layout_marginRight="1dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 

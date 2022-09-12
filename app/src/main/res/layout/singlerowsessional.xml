@@ -13,7 +13,7 @@
         android:layout_height="283dp"
         android:background="@drawable/singlerow"
         android:orientation="vertical"
-        android:padding="15dp">
+        android:padding="20dp">
 
         <TextView
             android:id="@+id/marksTitle"
@@ -60,6 +60,7 @@
                         android:text="Hitesh Kumar"
                         android:textColor="#000000"
                         android:textSize="18sp"
+                        android:layout_marginLeft="3dp"
                         android:textStyle="bold" />
 
 

@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/light_white_bg"
     tools:context=".Activity.Queries.QueriesActivity">
 
 
@@ -53,35 +54,6 @@
             android:textSize="10sp"
             android:textStyle="italic" />
 
-        <Spinner
-            android:id="@+id/queriesName"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginBottom="7dp"
-            android:background="@drawable/spinnerbg"
-            android:spinnerMode="dialog"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/spinnerSessionalTitle"
-            app:layout_constraintVertical_bias="0.124"
-            tools:ignore="MissingConstraints" />
-
-        <Spinner
-            android:id="@+id/queriesRollNumber"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginBottom="7dp"
-            android:background="@drawable/spinnerbg"
-            android:spinnerMode="dialog"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/spinnerSessionalTitle"
-            app:layout_constraintVertical_bias="0.124"
-            tools:ignore="MissingConstraints" />
 
         <Spinner
             android:id="@+id/queriesFaculty"

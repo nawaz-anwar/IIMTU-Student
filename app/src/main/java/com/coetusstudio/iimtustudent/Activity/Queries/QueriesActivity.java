@@ -34,9 +34,8 @@ import java.util.List;
 public class QueriesActivity extends AppCompatActivity {
 
     ActivityQueriesBinding binding;
-    DatabaseReference reference;
-    DatabaseReference dbnameref, dbrollref, dbfacultyref, dbfacultyuid;
-    String studentName, studentRollNumber, facultyName, studentImage, queriesStudentRollNumber;
+    DatabaseReference reference, dbfacultyref;
+    String studentName, studentRollNumber, facultyName, studentImage, studentSection;
     FirebaseAuth auth;
     FirebaseUser currentUser;
     RecyclerView recviewQueries;
@@ -56,10 +55,87 @@ public class QueriesActivity extends AppCompatActivity {
         auth = FirebaseAuth.getInstance();
         currentUser = auth.getCurrentUser();
         reference = FirebaseDatabase.getInstance().getReference().child("Queries");
-        dbrollref = FirebaseDatabase.getInstance().getReference().child("IIMTU").child("Student");
-        dbnameref = FirebaseDatabase.getInstance().getReference().child("IIMTU").child("Student");
-        dbfacultyref = FirebaseDatabase.getInstance().getReference().child("IIMTU").child("Faculty");
-        dbfacultyuid = FirebaseDatabase.getInstance().getReference().child("IIMTU").child("Faculty");
+        dbfacultyref = FirebaseDatabase.getInstance().getReference().child("Faculty Data");
+
+        FirebaseDatabase.getInstance().getReference().child("Student Data").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                for (DataSnapshot dsp : snapshot.getChildren()) {
+                    try {
+                        studentSection = dsp.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("studentSection").getValue(String.class).toString();
+                        studentName = dsp.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("studentName").getValue(String.class).toString();
+                        studentImage = dsp.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("studentImage").getValue(String.class).toString();
+                        studentRollNumber = dsp.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("studentRollNumber").getValue(String.class).toString();
+
+
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+
+                }
+
+                //Spinner for facultyName
+                final List<String> listFacultyName=new ArrayList<String>();
+                listFacultyName.add("Select Faculty Name");
+
+                ArrayAdapter<String> facultyNameArrayAdapter=new ArrayAdapter<String>(QueriesActivity.this,android.R.layout.simple_spinner_item,listFacultyName);
+                facultyNameArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                binding.queriesFaculty.setAdapter(facultyNameArrayAdapter);
+
+                binding.queriesFaculty.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                    @Override
+                    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                        facultyName=parent.getItemAtPosition(position).toString();
+                    }
+
+                    @Override
+                    public void onNothingSelected(AdapterView<?> parent) {
+
+                    }
+                });
+
+                dbfacultyref.child(studentSection).addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                        for(DataSnapshot dsp :dataSnapshot.getChildren()){
+
+                            AddFaculty br = dsp.getValue(AddFaculty.class);
+
+
+
+                            listFacultyName.add(br.getFacultyName());
+
+                        }
+
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
+
+                LinearLayoutManager linearLayoutManager = new LinearLayoutManager(QueriesActivity.this);
+                recviewQueries=(RecyclerView)findViewById(R.id.rcQueries);
+                recviewQueries.setLayoutManager(linearLayoutManager);
+                linearLayoutManager.setReverseLayout(true);
+                linearLayoutManager.setStackFromEnd(true);
+                FirebaseRecyclerOptions<Queries> options =
+                        new FirebaseRecyclerOptions.Builder<Queries>()
+                                .setQuery(FirebaseDatabase.getInstance().getReference().child("Resolve Queries").child(studentSection).child(studentRollNumber), Queries.class)
+                                .build();
+                queriesAdapter=new QueriesAdapter(options);
+                recviewQueries.setAdapter(queriesAdapter);
+                queriesAdapter.startListening();
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(QueriesActivity.this, "Fail to get data.", Toast.LENGTH_SHORT).show();
+            }
+        });
+
 
         binding.btnSendLink.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -75,153 +151,13 @@ public class QueriesActivity extends AppCompatActivity {
             }
         });
 
-        //Spinner for studentName
-        final List<String> listStudentName=new ArrayList<String>();
-        listStudentName.add("Select Your Name");
-
-        ArrayAdapter<String> studentNameArrayAdapter=new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,listStudentName);
-        studentNameArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        binding.queriesName.setAdapter(studentNameArrayAdapter);
-
-        binding.queriesName.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                studentName=parent.getItemAtPosition(position).toString();
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
-
-        dbnameref.child(currentUser.getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                if (dataSnapshot.exists()){
-                    listStudentName.add(dataSnapshot.child("studentName").getValue().toString());
-
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
-
-        //Spinner for StudentRollNumber
-        final List<String> listStudentRollNumber=new ArrayList<String>();
-        listStudentRollNumber.add("Select Roll Number");
-
-        ArrayAdapter<String> rollNumberArrayAdapter=new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,listStudentRollNumber);
-        rollNumberArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        binding.queriesRollNumber.setAdapter(rollNumberArrayAdapter);
-
-        binding.queriesRollNumber.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                studentRollNumber=parent.getItemAtPosition(position).toString();
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
-
-        dbrollref.child(currentUser.getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                if (dataSnapshot.exists()){
-                    listStudentRollNumber.add(dataSnapshot.child("studentRollNumber").getValue().toString());
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
-
-        //Spinner for facultyName
-        final List<String> listFacultyName=new ArrayList<String>();
-        listFacultyName.add("Select Faculty Name");
-
-        ArrayAdapter<String> facultyNameArrayAdapter=new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,listFacultyName);
-        facultyNameArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        binding.queriesFaculty.setAdapter(facultyNameArrayAdapter);
-
-        binding.queriesFaculty.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                facultyName=parent.getItemAtPosition(position).toString();
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
-
-        dbfacultyref.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-
-                for(DataSnapshot dsp :dataSnapshot.getChildren()){
-
-                    AddFaculty br = dsp.getValue(AddFaculty.class);
-
-
-
-                    listFacultyName.add(br.getFacultyName());
-
-                }
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
-
-        FirebaseDatabase.getInstance().getReference().child("IIMTU").child("Student").child(currentUser.getUid()).addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if (snapshot.exists()){
-
-                    queriesStudentRollNumber = snapshot.child("studentRollNumber").getValue().toString();
-                    studentImage = snapshot.child("studentImage").getValue().toString();
-
-                    LinearLayoutManager linearLayoutManager = new LinearLayoutManager(QueriesActivity.this);
-                    recviewQueries=(RecyclerView)findViewById(R.id.rcQueries);
-                    recviewQueries.setLayoutManager(linearLayoutManager);
-                    linearLayoutManager.setReverseLayout(true);
-                    linearLayoutManager.setStackFromEnd(true);
-                    FirebaseRecyclerOptions<Queries> options =
-                            new FirebaseRecyclerOptions.Builder<Queries>()
-                                    .setQuery(FirebaseDatabase.getInstance().getReference().child("Resolve Queries").child(queriesStudentRollNumber), Queries.class)
-                                    .build();
-                    queriesAdapter=new QueriesAdapter(options);
-                    recviewQueries.setAdapter(queriesAdapter);
-                    queriesAdapter.startListening();
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
-
     }
     private void sendlink() {
 
         String queriesTitle = binding.queriesTitle.getEditText().getText().toString();
         Queries queries = new Queries(studentName, studentRollNumber, facultyName, queriesTitle, studentImage);
 
-        reference.child(facultyName).push().setValue(queries).addOnSuccessListener(new OnSuccessListener<Void>() {
+        reference.child(studentSection).child(facultyName).push().setValue(queries).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void unused) {
                 Toast.makeText(QueriesActivity.this, "Queries Sent...", Toast.LENGTH_SHORT).show();

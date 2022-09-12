@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 
@@ -19,45 +20,45 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
+
 public class Sessional_Assignment_Marks extends AppCompatActivity {
 
     RecyclerView recviewSessional;
     SessionalMarksAdapter sessionalMarksAdapter;
-    FirebaseAuth auth;
-    FirebaseUser currentUser;
-    String studentRollNumber;
+    String studentRollNumber, studentSection, studentName;
+    ArrayList<SessionalMarks> list;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sessional_assignment_marks);
 
-        auth = FirebaseAuth.getInstance();
-        currentUser = auth.getCurrentUser();
+        Intent intent = getIntent();
+        studentSection = intent.getStringExtra("section");
+        studentRollNumber = intent.getStringExtra("rollNumber");
+        studentName = intent.getStringExtra("name");
+        
+        list = new ArrayList<>();
 
-        FirebaseDatabase.getInstance().getReference().child("IIMTU").child("Student").child(currentUser.getUid()).addValueEventListener(new ValueEventListener() {
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(Sessional_Assignment_Marks.this);
+        recviewSessional = (RecyclerView) findViewById(R.id.rcSessionalMarks);
+        recviewSessional.setLayoutManager(linearLayoutManager);
+
+        //linearLayoutManager.setReverseLayout(true);
+        //linearLayoutManager.setStackFromEnd(true);
+
+        sessionalMarksAdapter = new SessionalMarksAdapter(this, list, studentName);
+        recviewSessional.setAdapter(sessionalMarksAdapter);
+
+        FirebaseDatabase.getInstance().getReference().child("SessionalMarks").child(studentSection).child(studentRollNumber).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if (snapshot.exists()){
-
-                    studentRollNumber = snapshot.child("studentRollNumber").getValue().toString();
-                    Log.i(studentRollNumber,"Roll");
-                    LinearLayoutManager linearLayoutManager = new LinearLayoutManager(Sessional_Assignment_Marks.this);
-                    recviewSessional=(RecyclerView)findViewById(R.id.rcSessionalMarks);
-                    recviewSessional.setLayoutManager(linearLayoutManager);
-                    linearLayoutManager.setReverseLayout(true);
-                    linearLayoutManager.setStackFromEnd(true);
-
-                    FirebaseRecyclerOptions<SessionalMarks> options =
-                            new FirebaseRecyclerOptions.Builder<SessionalMarks>()
-                                    .setQuery(FirebaseDatabase.getInstance().getReference().child("SessionalMarks").child(studentRollNumber), SessionalMarks.class)
-                                    .build();
-
-                    sessionalMarksAdapter=new SessionalMarksAdapter(options);
-                    recviewSessional.setAdapter(sessionalMarksAdapter);
-                    sessionalMarksAdapter.startListening();
-
+                for (DataSnapshot dataSnapshot : snapshot.getChildren()){
+                    SessionalMarks sessionalMarks = dataSnapshot.getValue(SessionalMarks.class);
+                    list.add(sessionalMarks);
                 }
+                sessionalMarksAdapter.notifyDataSetChanged();
             }
 
             @Override
@@ -66,13 +67,9 @@ public class Sessional_Assignment_Marks extends AppCompatActivity {
             }
         });
 
-    }
 
 
-    @Override
-    protected void onStop() {
-        super.onStop();
-        sessionalMarksAdapter.stopListening();
     }
+
 
 }

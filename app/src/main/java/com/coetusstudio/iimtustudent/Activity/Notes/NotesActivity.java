@@ -98,10 +98,4 @@ public class NotesActivity extends AppCompatActivity {
         recviewNotes.setAdapter(notesAdapter);
 
     }
-    @Override
-    public void onBackPressed() {
-        Intent intent = new Intent(NotesActivity.this, MainActivity.class);
-        startActivity(intent);
-        finish();
-    }
 }

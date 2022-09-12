@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/light_white_bg"
     tools:context=".Activity.Faculty.FacultyDeatilsActivity">
 
     <TextView
@@ -24,9 +25,9 @@
     <View
         android:id="@+id/view2"
         android:layout_width="300dp"
-        android:layout_height="5dp"
+        android:layout_height="9dp"
         android:layout_marginTop="56dp"
-        android:background="@color/btnbgcolor"
+        android:background="@drawable/round_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"

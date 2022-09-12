@@ -45,17 +45,23 @@ public class LectureAdapter extends FirebaseRecyclerAdapter<Lecture,LectureAdapt
                 .into(holder.lectureFacultyImage);
         String uriLink = Lecture.getLectureLink();
 
+        holder.lectureLink.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Intent.ACTION_SEND);
+                intent.putExtra(Intent.EXTRA_TEXT, uriLink);
+                intent.setType("text/plain");
+                holder.lectureLink.getContext().startActivity(intent);
+            }
+        });
+
         holder.btnLectureJoin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(Intent.ACTION_SEND);
-                Intent chooser = Intent.createChooser(intent, uriLink);
-
-                try {
-                    holder.lectureLink.getContext().startActivity(chooser);
-                } catch (ActivityNotFoundException e) {
-                    // Define what your app should do if no activity can handle the intent.
-                }
+                intent.putExtra(Intent.EXTRA_TEXT, uriLink);
+                intent.setType("text/plain");
+                holder.lectureLink.getContext().startActivity(intent);
             }
         });
 

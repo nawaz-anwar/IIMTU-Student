@@ -57,6 +57,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     FirebaseUser currentUser;
     CircleImageView studentImageProfile;
     TextView studentNameProfile, studentEmailIdProfile, studentRollNumberProfile, studentAdmissionNumberProfile;
+    String confirmEmail, section, rollNumber, studentName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,10 +66,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-
         auth = FirebaseAuth.getInstance();
         currentUser = auth.getCurrentUser();
 
+        Intent intent = getIntent();
+        confirmEmail = intent.getStringExtra("confirmEmail");
 
         studentNameProfile = findViewById(R.id.studentNameProfile);
         studentImageProfile = findViewById(R.id.studentImageProfile);
@@ -104,7 +106,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         toggle.syncState();
         toolbar.setTitle("IIMT Student");
 
-        updateNavHeader();
+        updateNavHeader(confirmEmail);
 
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -176,11 +178,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.marks:
                 Intent intent2 = new Intent(MainActivity.this, Sessional_Assignment_Marks.class);
+                intent2.putExtra("section", section);
+                intent2.putExtra("rollNumber", rollNumber);
+                intent2.putExtra("name", studentName);
                 startActivity(intent2);
                 break;
             case R.id.lecture:
                 Intent intent3 = new Intent(MainActivity.this, LectureActivity.class);
                 startActivity(intent3);
+                break;
             case R.id.studentDetails:
                 Intent intent4 = new Intent(MainActivity.this, StudentdetailsActivity.class);
                 startActivity(intent4);
@@ -200,7 +206,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-    public void updateNavHeader() {
+    public void updateNavHeader(String confirmEmail) {
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         View headerView = navigationView.getHeaderView(0);
@@ -210,39 +216,36 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         ImageView navUserPhot = headerView.findViewById(R.id.studentImageProfile);
 
 
-                    /*
-                    String userName= snapshot.child("studentName").getValue().toString();
-                    navUsername.setText(userName);
-                    navUserMail.setText(snapshot.child("studentEmail").getValue().toString());
-                    navUserRoll.setText(snapshot.child("studentRollNumber").getValue().toString());
-                    String url = snapshot.child("studentImage").getValue().toString();
-                    Glide.with(getApplicationContext()).load(url).error(R.drawable.manimg).into(navUserPhot);
-
-                     */
-
         FirebaseDatabase.getInstance().getReference().child("Student Data").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
 
                 for (DataSnapshot dsp : snapshot.getChildren()) {
-                    String image, name, email, rollNo;
+                    String image, email = null;
 
                     try {
-                        name = dsp.child(auth.getCurrentUser().getUid()).child("studentName").getValue(String.class);
-                        navUsername.setText(name);
+                        studentName = dsp.child(auth.getCurrentUser().getUid()).child("studentName").getValue(String.class).toString();
+                        navUsername.setText(studentName);
                         email = dsp.child(auth.getCurrentUser().getUid()).child("studentEmail").getValue(String.class).toString();
                         navUserMail.setText(email);
-                        rollNo = dsp.child(auth.getCurrentUser().getUid()).child("studentRollNumber").getValue(String.class).toString();
-                        navUserRoll.setText(rollNo);
+                        rollNumber = dsp.child(auth.getCurrentUser().getUid()).child("studentRollNumber").getValue(String.class).toString();
+                        navUserRoll.setText(rollNumber);
+                        section = dsp.child(auth.getCurrentUser().getUid()).child("studentSection").getValue(String.class).toString();
 
                         image = dsp.child(auth.getCurrentUser().getUid()).child("studentImage").getValue(String.class).toString();
                         Glide.with(getApplicationContext()).load(image).error(R.drawable.manimg).into(navUserPhot);
 
+                        if (email.equals(confirmEmail)){
 
+                        }else {
+                            startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+                            finish();
+                        }
                     }
                     catch (Exception e){
                         e.printStackTrace();
                     }
+
 
 
                 }

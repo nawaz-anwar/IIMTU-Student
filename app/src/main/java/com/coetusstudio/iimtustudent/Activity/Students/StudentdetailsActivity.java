@@ -90,22 +90,6 @@ public class StudentdetailsActivity extends AppCompatActivity {
 
 
                 }
-                /*
-                StudentDetails studentDetails = snapshot.getValue(StudentDetails.class);
-
-                binding.studentName.setText(studentDetails.getStudentName());
-                binding.studentEmailId.setText(studentDetails.getStudentEmail());
-                binding.studentRollNumber.setText(studentDetails.getStudentRollNumber());
-                binding.studentAdmissionNumber.setText(studentDetails.getStudentAdmissionNumber());
-                binding.studentEnroolmentNumber.setText(studentDetails.getStudentEnrollmentNumber());
-                binding.studentGrade.setText(studentDetails.getStudentGrade());
-                binding.studentBranch.setText(studentDetails.getStudentBranch());
-                binding.studentSemester.setText(studentDetails.getStudentSemester());
-                binding.studentSection.setText(studentDetails.getStudentSection());
-
-
-
-                 */
 
             }
 

@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/light_white_bg"
     tools:context=".Activity.Notification.NotificationActivity">
 
     <TextView
@@ -11,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:text="Notification"
-        android:textSize="25sp"
+        android:textSize="28sp"
         android:textColor="#000000"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -22,7 +23,7 @@
     <View
         android:id="@+id/view2"
         android:layout_width="300dp"
-        android:layout_height="7dp"
+        android:layout_height="9dp"
         android:layout_marginTop="50dp"
         android:background="@drawable/round_button"
         app:layout_constraintEnd_toEndOf="parent"

@@ -47,15 +47,15 @@ public class LoginActivity extends AppCompatActivity {
         binding.btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-
                 progressDialog.show();
                 auth.signInWithEmailAndPassword(binding.emailStudent.getEditText().getText().toString(), binding.passwordStudent.getEditText().getText().toString()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         progressDialog.dismiss();
                         if (task.isSuccessful()){
-                            startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                            intent.putExtra("confirmEmail", binding.emailStudent.getEditText().getText().toString());
+                            startActivity(intent);
                             finish();
                         }
                         else{
