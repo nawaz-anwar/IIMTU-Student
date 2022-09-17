@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="7dp"
+    android:layout_marginTop="16dp"
+    android:padding="16dp"
     tools:context=".Activity.Notification.ImageViewActivity">
 
 
@@ -31,7 +32,7 @@
         android:id="@+id/viewImage"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="7dp"
+        android:layout_marginTop="16dp"
         app:srcCompat="@drawable/iimtulogo" />
 
     <LinearLayout
@@ -71,8 +72,8 @@
 
         <ImageView
             android:id="@+id/notificationDownload"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
             android:background="@drawable/download" />
 
         <TextView
@@ -81,7 +82,7 @@
             android:layout_height="wrap_content"
             android:text="Click here to Download"
             android:textColor="#747AEF"
-            android:textSize="26sp"
+            android:textSize="18sp"
             android:layout_marginLeft="10dp"
             android:textStyle="bold" />
 

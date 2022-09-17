@@ -70,10 +70,5 @@ public class ImageViewActivity extends AppCompatActivity {
         downloadmanager.enqueue(request);
     }
 
-    @Override
-    public void onBackPressed() {
-        Intent intent = new Intent(ImageViewActivity.this, NotificationActivity.class);
-        startActivity(intent);
-        finish();
-    }
+
 }

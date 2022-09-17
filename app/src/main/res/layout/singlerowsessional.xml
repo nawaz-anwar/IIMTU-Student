@@ -11,9 +11,9 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="283dp"
-        android:background="@drawable/singlerow"
+        android:background="@drawable/boundry"
         android:orientation="vertical"
-        android:padding="20dp">
+        android:padding="10dp">
 
         <TextView
             android:id="@+id/marksTitle"
@@ -75,7 +75,7 @@
                             android:layout_marginRight="10dp"
                             android:text="Marks"
                             android:textColor="#000000"
-                            android:textSize="18sp"
+                            android:textSize="16sp"
                             android:textStyle="bold"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"

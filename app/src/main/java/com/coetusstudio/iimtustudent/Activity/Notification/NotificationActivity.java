@@ -87,4 +87,5 @@ public class NotificationActivity extends AppCompatActivity {
         noticeAdapter.stopListening();
     }
 
+
 }

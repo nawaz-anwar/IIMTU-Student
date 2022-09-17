@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="15dp">
+        android:padding="10dp">
 
 
         <LinearLayout
@@ -103,7 +103,8 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
                         android:text="47358744654"
-                        android:textSize="14sp" />
+                        android:textSize="14sp"
+                        android:textColor="@color/light_text_bg"/>
 
                 </LinearLayout>
 
@@ -127,12 +128,13 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
                         android:text="21210099"
-                        android:textSize="14sp" />
+                        android:textSize="14sp"
+                        android:textColor="@color/light_text_bg"/>
 
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="3dp"
                     android:orientation="horizontal">
@@ -147,11 +149,12 @@
 
                     <TextView
                         android:id="@+id/facultyRcSubjectCode"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
                         android:text="IIMTU/363"
-                        android:textSize="14sp" />
+                        android:textSize="14sp"
+                        android:textColor="@color/light_text_bg"/>
 
                 </LinearLayout>
 
@@ -175,7 +178,8 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
                         android:text="B.Tech CSE"
-                        android:textSize="14sp" />
+                        android:textSize="14sp"
+                        android:textColor="@color/light_text_bg"/>
 
                 </LinearLayout>
 
@@ -199,7 +203,8 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
                         android:text="IIMTU/363"
-                        android:textSize="14sp" />
+                        android:textSize="14sp"
+                        android:textColor="@color/light_text_bg"/>
 
                 </LinearLayout>
 
@@ -223,7 +228,8 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
                         android:text="IIMTU/363"
-                        android:textSize="14sp" />
+                        android:textSize="14sp"
+                        android:textColor="@color/light_text_bg"/>
 
                 </LinearLayout>
 

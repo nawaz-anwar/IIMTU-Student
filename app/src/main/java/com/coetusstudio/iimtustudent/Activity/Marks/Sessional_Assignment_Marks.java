@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -28,16 +29,30 @@ public class Sessional_Assignment_Marks extends AppCompatActivity {
     SessionalMarksAdapter sessionalMarksAdapter;
     String studentRollNumber, studentSection, studentName;
     ArrayList<SessionalMarks> list;
+    ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sessional_assignment_marks);
 
-        Intent intent = getIntent();
-        studentSection = intent.getStringExtra("section");
-        studentRollNumber = intent.getStringExtra("rollNumber");
-        studentName = intent.getStringExtra("name");
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setTitle("Please! wait");
+        progressDialog.setMessage("Loading...");
+
+        progressDialog.show();
+        try {
+            Intent intent = getIntent();
+            studentSection = intent.getStringExtra("section");
+            studentRollNumber = intent.getStringExtra("rollNumber");
+            studentName = intent.getStringExtra("name");
+
+            progressDialog.dismiss();
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
         
         list = new ArrayList<>();
 
@@ -59,6 +74,7 @@ public class Sessional_Assignment_Marks extends AppCompatActivity {
                     list.add(sessionalMarks);
                 }
                 sessionalMarksAdapter.notifyDataSetChanged();
+                //progressDialog.dismiss();
             }
 
             @Override

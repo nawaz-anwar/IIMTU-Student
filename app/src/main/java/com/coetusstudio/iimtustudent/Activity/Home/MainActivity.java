@@ -1,7 +1,5 @@
 package com.coetusstudio.iimtustudent.Activity.Home;
 
-import static android.view.View.INVISIBLE;
-
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -21,6 +19,7 @@ import com.coetusstudio.iimtustudent.Activity.Notification.NotificationActivity;
 import com.coetusstudio.iimtustudent.Activity.Queries.QueriesActivity;
 import com.coetusstudio.iimtustudent.R;
 import com.coetusstudio.iimtustudent.Activity.Marks.Sessional_Assignment_Marks;
+import com.coetusstudio.iimtustudent.VerifiyActivity;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 
@@ -57,7 +56,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     FirebaseUser currentUser;
     CircleImageView studentImageProfile;
     TextView studentNameProfile, studentEmailIdProfile, studentRollNumberProfile, studentAdmissionNumberProfile;
-    String confirmEmail, section, rollNumber, studentName;
+    String confirmEmail, section, rollNumber, studentName, studentImage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -104,7 +103,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.OpenDrawer, R.string.CloseDrawer);
         toggle.syncState();
-        toolbar.setTitle("IIMT Student");
+        toolbar.setTitle("IIMTU Student");
 
         updateNavHeader(confirmEmail);
 
@@ -153,9 +152,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Intent emailIntent = new Intent(Intent.ACTION_SEND);
                 // The intent does not have a URI, so declare the "text/plain" MIME type
                 emailIntent.setType("text/plain");
-                emailIntent.putExtra(Intent.EXTRA_EMAIL, new String[] {"cse.nawaz.2003@gmail.com"}); // recipients
+                emailIntent.putExtra(Intent.EXTRA_EMAIL, new String[] {"feedback.coetusstudio@gmail.com"}); // recipients
                 emailIntent.putExtra(Intent.EXTRA_SUBJECT, "IIMTU Student Feedback");
-                emailIntent.putExtra(Intent.EXTRA_TEXT, "Type your here...");
+                emailIntent.putExtra(Intent.EXTRA_TEXT, "Type your query here...");
                 emailIntent.putExtra(Intent.EXTRA_STREAM, Uri.parse("content://path/to/email/attachment"));
                 startActivity(emailIntent);
                 // You can also attach multiple items by passing an ArrayList of Uris
@@ -181,6 +180,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 intent2.putExtra("section", section);
                 intent2.putExtra("rollNumber", rollNumber);
                 intent2.putExtra("name", studentName);
+                intent2.putExtra("image", studentImage);
                 startActivity(intent2);
                 break;
             case R.id.lecture:
@@ -221,7 +221,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             public void onDataChange(@NonNull DataSnapshot snapshot) {
 
                 for (DataSnapshot dsp : snapshot.getChildren()) {
-                    String image, email = null;
+                    String email = null;
 
                     try {
                         studentName = dsp.child(auth.getCurrentUser().getUid()).child("studentName").getValue(String.class).toString();
@@ -232,8 +232,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         navUserRoll.setText(rollNumber);
                         section = dsp.child(auth.getCurrentUser().getUid()).child("studentSection").getValue(String.class).toString();
 
-                        image = dsp.child(auth.getCurrentUser().getUid()).child("studentImage").getValue(String.class).toString();
-                        Glide.with(getApplicationContext()).load(image).error(R.drawable.manimg).into(navUserPhot);
+                        studentImage = dsp.child(auth.getCurrentUser().getUid()).child("studentImage").getValue(String.class).toString();
+                        Glide.with(getApplicationContext()).load(studentImage).error(R.drawable.manimg).into(navUserPhot);
 
                         if (email.equals(confirmEmail)){
 

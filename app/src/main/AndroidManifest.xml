@@ -14,6 +14,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.IIMTUStudent">
         <activity
+            android:name=".VerifiyActivity"
+            android:exported="false" />
+        <activity
             android:name=".Activity.Home.ForgetPasswordActivity"
             android:exported="false" />
         <activity
@@ -39,8 +42,8 @@
             android:exported="false" />
         <activity
             android:name=".Activity.Lecture.LectureActivity"
-            android:exported="true"
-            android:theme="@style/Theme.IIMTUStudentNoAction" />
+            android:exported="false"
+            android:theme="@style/Theme.IIMTUStudentAction" />
         <activity
             android:name=".Activity.Students.StudentdetailsActivity"
             android:exported="false" />
@@ -50,7 +53,7 @@
         <activity
             android:name=".Activity.Notes.NotesActivity"
             android:exported="true"
-            android:theme="@style/Theme.IIMTUStudentNoAction" />
+            android:theme="@style/Theme.IIMTUStudentAction" />
         <activity
             android:name=".Activity.Home.MainActivity"
             android:exported="true"
