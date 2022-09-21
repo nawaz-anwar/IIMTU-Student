@@ -3,12 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/App data/IIMTUStudent/app/src/main/res/drawable/bgcolor.xml" value="0.1365" />
         <entry key="..\:/App data/IIMTUStudent/app/src/main/res/drawable/bgsinglerow.xml" value="0.20052083333333334" />
         <entry key="..\:/App data/IIMTUStudent/app/src/main/res/drawable/boundry.xml" value="0.16666666666666666" />
         <entry key="..\:/App data/IIMTUStudent/app/src/main/res/drawable/buttonbg.xml" value="0.1325" />
         <entry key="..\:/App data/IIMTUStudent/app/src/main/res/drawable/circular.xml" value="0.20052083333333334" />
         <entry key="..\:/App data/IIMTUStudent/app/src/main/res/drawable/cornersbg.xml" value="0.20052083333333334" />
         <entry key="..\:/App data/IIMTUStudent/app/src/main/res/drawable/headerbg.xml" value="0.20052083333333334" />
+        <entry key="..\:/App data/IIMTUStudent/app/src/main/res/drawable/ic_baseline_arrow_forward.xml" value="0.1365" />
         <entry key="..\:/App data/IIMTUStudent/app/src/main/res/drawable/ic_baseline_search_24.xml" value="0.1325" />
         <entry key="..\:/App data/IIMTUStudent/app/src/main/res/drawable/ic_menu_slideshow.xml" value="0.20052083333333334" />
         <entry key="..\:/App data/IIMTUStudent/app/src/main/res/drawable/round_button.xml" value="0.20052083333333334" />

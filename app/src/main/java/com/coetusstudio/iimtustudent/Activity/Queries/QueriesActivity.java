@@ -103,8 +103,6 @@ public class QueriesActivity extends AppCompatActivity {
 
                             AddFaculty br = dsp.getValue(AddFaculty.class);
 
-
-
                             listFacultyName.add(br.getFacultyName());
 
                         }

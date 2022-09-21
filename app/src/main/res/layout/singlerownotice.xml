@@ -4,9 +4,27 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    app:cardCornerRadius="10dp"
-    android:layout_marginBottom="5dp"
+    app:cardCornerRadius="13dp"
+    android:layout_marginLeft="9dp"
+    android:layout_marginRight="9dp"
+    android:layout_marginBottom="9dp"
     android:padding="5dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/btnLectureNext"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@drawable/ic_baseline_arrow_forward"
+            android:layout_marginRight="5dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -14,12 +32,14 @@
         android:orientation="horizontal"
         android:layout_marginTop="7dp">
 
+
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/notificationFacultyImage"
             android:layout_width="65dp"
             android:layout_height="65dp"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="7dp"
             android:layout_marginLeft="3dp"
+            android:layout_gravity="center_vertical"
             android:background="@drawable/manimg"
             app:civ_border_color="#FF000000"
             app:civ_border_width="1dp" />
@@ -48,8 +68,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="7dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="3dp"
             android:orientation="horizontal">
 
 
@@ -59,7 +79,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="7"
                 android:text="TextView"
-                android:textColor="#000000"
+                android:textColor="@color/card_view_text"
                 android:textSize="14sp"
                 android:textStyle="bold" />
 
@@ -67,9 +87,9 @@
                 android:id="@+id/notificationTime"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_weight="2"
                 android:text="TextView"
-                android:textColor="#0329FF"
+                android:textColor="#435BE6"
                 android:textSize="14sp"
                 android:textStyle="bold" />
 

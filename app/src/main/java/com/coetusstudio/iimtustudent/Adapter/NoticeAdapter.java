@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -58,6 +59,22 @@ public class NoticeAdapter extends FirebaseRecyclerAdapter<NoticeData,NoticeAdap
             }
         });
 
+        holder.btnLectureNext.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(holder.notificationTitle.getContext(), ImageViewActivity.class);
+                intent.putExtra("title",NoticeData.getTitle());
+                intent.putExtra("imageurl",NoticeData.getImage());
+                intent.putExtra("date",NoticeData.getDate());
+                intent.putExtra("time",NoticeData.getTime());
+
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                holder.notificationTitle.getContext().startActivity(intent);
+
+
+            }
+        });
+
 
     } // End of OnBindViewMethod
 
@@ -74,6 +91,7 @@ public class NoticeAdapter extends FirebaseRecyclerAdapter<NoticeData,NoticeAdap
     {
         TextView notificationTitle, notificationDate, notificationTime;
         CircleImageView notificationFacultyImage;
+        ImageView btnLectureNext;
         public myviewholder(@NonNull View itemView)
         {
             super(itemView);
@@ -81,6 +99,7 @@ public class NoticeAdapter extends FirebaseRecyclerAdapter<NoticeData,NoticeAdap
             notificationDate=itemView.findViewById(R.id.notificationDate);
             notificationTime=itemView.findViewById(R.id.notificationTime);
             notificationFacultyImage=itemView.findViewById(R.id.notificationFacultyImage);
+            btnLectureNext=itemView.findViewById(R.id.btnLectureNext);
 
         }
     }

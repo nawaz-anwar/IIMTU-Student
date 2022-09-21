@@ -7,7 +7,7 @@
     android:gravity="bottom"
     android:orientation="vertical"
     android:padding="20dp"
-    android:background="@drawable/headerbg">
+    android:background="@drawable/bgcolor">
 
 
     <LinearLayout
