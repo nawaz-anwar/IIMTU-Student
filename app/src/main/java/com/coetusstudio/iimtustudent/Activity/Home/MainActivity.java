@@ -150,14 +150,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             @Override
             public void onClick(View view) {
                 Intent emailIntent = new Intent(Intent.ACTION_SEND);
-                // The intent does not have a URI, so declare the "text/plain" MIME type
                 emailIntent.setType("text/plain");
-                emailIntent.putExtra(Intent.EXTRA_EMAIL, new String[] {"feedback.coetusstudio@gmail.com"}); // recipients
+                emailIntent.putExtra(Intent.EXTRA_EMAIL, new String[] {"feedback.coetusstudio@gmail.com"});
                 emailIntent.putExtra(Intent.EXTRA_SUBJECT, "IIMTU Student Feedback");
                 emailIntent.putExtra(Intent.EXTRA_TEXT, "Type your query here...");
                 emailIntent.putExtra(Intent.EXTRA_STREAM, Uri.parse("content://path/to/email/attachment"));
                 startActivity(emailIntent);
-                // You can also attach multiple items by passing an ArrayList of Uris
             }
         });
 

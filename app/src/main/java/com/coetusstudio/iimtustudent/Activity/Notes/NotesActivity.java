@@ -32,7 +32,6 @@ public class NotesActivity extends AppCompatActivity {
 
     RecyclerView recviewNotes;
     NotesAdapter notesAdapter;
-    MaterialSearchBar search;
     String studentSection;
 
     @Override
@@ -40,7 +39,7 @@ public class NotesActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notes);
 
-        setTitle("   Enter PDF");
+        setTitle("Search PDF");
 
         FirebaseDatabase.getInstance().getReference().child("Student Data").addValueEventListener(new ValueEventListener() {
             @Override
@@ -126,5 +125,11 @@ public class NotesActivity extends AppCompatActivity {
         notesAdapter.startListening();
         recviewNotes.setAdapter(notesAdapter);
 
+    }
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        //startActivity(new Intent(getApplicationContext(), MainActivity.class));
+        //finish();
     }
 }
