@@ -76,17 +76,17 @@ public class QueriesActivity extends AppCompatActivity {
                 }
 
                 //Spinner for facultyName
-                final List<String> listFacultyName=new ArrayList<String>();
+                final List<String> listFacultyName = new ArrayList<String>();
                 listFacultyName.add("Select Faculty Name");
 
-                ArrayAdapter<String> facultyNameArrayAdapter=new ArrayAdapter<String>(QueriesActivity.this,android.R.layout.simple_spinner_item,listFacultyName);
+                ArrayAdapter<String> facultyNameArrayAdapter = new ArrayAdapter<String>(QueriesActivity.this, android.R.layout.simple_spinner_item, listFacultyName);
                 facultyNameArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 binding.queriesFaculty.setAdapter(facultyNameArrayAdapter);
 
                 binding.queriesFaculty.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                     @Override
                     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                        facultyName=parent.getItemAtPosition(position).toString();
+                        facultyName = parent.getItemAtPosition(position).toString();
                     }
 
                     @Override
@@ -99,7 +99,7 @@ public class QueriesActivity extends AppCompatActivity {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
-                        for(DataSnapshot dsp :dataSnapshot.getChildren()){
+                        for (DataSnapshot dsp : dataSnapshot.getChildren()) {
 
                             AddFaculty br = dsp.getValue(AddFaculty.class);
 
@@ -116,7 +116,7 @@ public class QueriesActivity extends AppCompatActivity {
                 });
 
                 LinearLayoutManager linearLayoutManager = new LinearLayoutManager(QueriesActivity.this);
-                recviewQueries=(RecyclerView)findViewById(R.id.rcQueries);
+                recviewQueries = (RecyclerView) findViewById(R.id.rcQueries);
                 recviewQueries.setLayoutManager(linearLayoutManager);
                 linearLayoutManager.setReverseLayout(true);
                 linearLayoutManager.setStackFromEnd(true);
@@ -124,10 +124,11 @@ public class QueriesActivity extends AppCompatActivity {
                         new FirebaseRecyclerOptions.Builder<Queries>()
                                 .setQuery(FirebaseDatabase.getInstance().getReference().child("Resolve Queries").child(studentSection).child(studentRollNumber), Queries.class)
                                 .build();
-                queriesAdapter=new QueriesAdapter(options);
+                queriesAdapter = new QueriesAdapter(options);
                 recviewQueries.setAdapter(queriesAdapter);
                 queriesAdapter.startListening();
             }
+
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
                 Toast.makeText(QueriesActivity.this, "Fail to get data.", Toast.LENGTH_SHORT).show();
@@ -150,6 +151,7 @@ public class QueriesActivity extends AppCompatActivity {
         });
 
     }
+
     private void sendlink() {
 
         String queriesTitle = binding.queriesTitle.getEditText().getText().toString();

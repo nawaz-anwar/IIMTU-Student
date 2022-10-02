@@ -12,8 +12,10 @@ import android.view.MenuItem;
 import android.widget.SearchView;
 import android.widget.Toast;
 
+import com.coetusstudio.iimtustudent.Activity.Home.LoginActivity;
 import com.coetusstudio.iimtustudent.Activity.Home.MainActivity;
 import com.coetusstudio.iimtustudent.Activity.Lecture.LectureActivity;
+import com.coetusstudio.iimtustudent.Activity.Students.StudentdetailsActivity;
 import com.coetusstudio.iimtustudent.Adapter.LectureAdapter;
 import com.coetusstudio.iimtustudent.Adapter.NotesAdapter;
 import com.coetusstudio.iimtustudent.Model.Lecture;
@@ -41,6 +43,9 @@ public class NotesActivity extends AppCompatActivity {
 
         setTitle("Search PDF");
 
+        studentSection = "G2";
+
+
         FirebaseDatabase.getInstance().getReference().child("Student Data").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -54,6 +59,8 @@ public class NotesActivity extends AppCompatActivity {
                         e.printStackTrace();
                     }
                 }
+
+
                 LinearLayoutManager linearLayoutManager = new LinearLayoutManager(NotesActivity.this);
                 recviewNotes=(RecyclerView)findViewById(R.id.rcNotes);
                 recviewNotes.setLayoutManager(linearLayoutManager);
@@ -80,6 +87,8 @@ public class NotesActivity extends AppCompatActivity {
 
 
     }
+
+
 
     @Override
     protected void onStop() {
@@ -126,10 +135,9 @@ public class NotesActivity extends AppCompatActivity {
         recviewNotes.setAdapter(notesAdapter);
 
     }
+
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        //startActivity(new Intent(getApplicationContext(), MainActivity.class));
-        //finish();
     }
 }

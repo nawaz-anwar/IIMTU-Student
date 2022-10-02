@@ -66,8 +66,7 @@ public class ViewpdfActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        Intent intent = new Intent(ViewpdfActivity.this, NotesActivity.class);
-        startActivity(intent);
+        super.onBackPressed();
         finish();
     }
 }
