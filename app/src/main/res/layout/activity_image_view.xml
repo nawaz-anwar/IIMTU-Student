@@ -22,8 +22,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="TextView"
-            android:textColor="#000"
-            android:textSize="22sp"
+            android:textColor="#1C1C1C"
+            android:textSize="18sp"
             android:textStyle="bold" />
 
     </LinearLayout>

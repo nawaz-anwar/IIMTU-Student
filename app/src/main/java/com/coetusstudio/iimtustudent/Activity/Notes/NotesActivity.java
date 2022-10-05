@@ -43,8 +43,6 @@ public class NotesActivity extends AppCompatActivity {
 
         setTitle("Search PDF");
 
-        studentSection = "G2";
-
 
         FirebaseDatabase.getInstance().getReference().child("Student Data").addValueEventListener(new ValueEventListener() {
             @Override
